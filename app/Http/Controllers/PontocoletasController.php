@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Pontocoletas;
 use Illuminate\Http\Request;
 
@@ -28,6 +28,13 @@ class PontocoletasController extends Controller
      */
     public function store(Request $request)
     {
+        Pontocoletas::create([
+            'status' => $request->status,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
+            'user_id' => Auth::user()->id
+        ]);
+        return redirect('/dashboard');
         //
     }
 

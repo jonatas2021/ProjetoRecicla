@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Pontocoletas extends Model
 {
@@ -14,7 +15,7 @@ class Pontocoletas extends Model
     protected $fillable = [
         'status',
         'latitude',
-        'longetudi',
+        'longitude',
         'user_id'
     
     ];
