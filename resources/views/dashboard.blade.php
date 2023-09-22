@@ -10,9 +10,9 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <form action="/add-pontocoleta" method="POST" id="formulario">
                         @csrf
-                        <input type="text" name="latitude" placeholder="latitude">
-                        <input type="text" name="longitude" placeholder="longitude">
-                        <input type="text" name="status" placeholder="status">
+                        <input type="text" name="latitude" placeholder="latitude" required>
+                        <input type="text" name="longitude" placeholder="longitude" required>
+                        <input type="text" name="status" placeholder="status" required>
                         <input type="submit" value="Adicionar" class="btn">
                     </form>
             

@@ -9,8 +9,8 @@
     <form action="{{route('point.edit', $points->id)}}" method="POST">
         @csrf
         @method('PATCH')
-        <input type="text" name="latitude" placeholder="latitude" value="{{$points->latitude}}" id="">
-        <input type="text" name="longitude" placeholder="longitude" value="{{$points->longitude}}" id="">
+        <input type="text" name="latitude" placeholder="latitude" value="{{$points->latitude}}" id="" required>
+        <input type="text" name="longitude" placeholder="longitude" value="{{$points->longitude}}" id="" required>
         <input type="submit" value="editar">
     </form>
 </body>
