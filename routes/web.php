@@ -27,6 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 }); 
 Route::post('/add-pontocoleta', [PontocoletasController::class, 'store']);
-    Route::delete('/point-delete/{id}', [PontocoletasController::class, 'destroy']);
-
+Route::delete('/point-delete/{id}', [PontocoletasController::class, 'destroy']);
+Route::get('/point-edit/{id}', [PontocoletasController::class, 'edit']);
+Route::patch('/edit-point/{id}', [PontocoletasController::class, 'update'])->name('point.edit');
 require __DIR__.'/auth.php';

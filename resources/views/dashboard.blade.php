@@ -28,9 +28,10 @@
                                             <form action="/point-delete/{{$pontos->id}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <input type="submit" value="deletar" class="btn-function">
+                                                <input type="submit" name="deletar" value="deletar" class="btn-function">
                                             </form>
                                         </td>
+                                        <td><a href="/point-edit/{{$pontos->id}}" method="GET" class="btn-function">editar</a></td>
                                     </tr>
                                 @endforeach
                         </table> 
