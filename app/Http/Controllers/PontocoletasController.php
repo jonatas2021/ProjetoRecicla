@@ -65,8 +65,9 @@ class PontocoletasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pontocoletas $pontocoletas)
+    public function destroy($pontocoletas)
     {
-        //
+        $pontocoletas = Pontocoletas::findOrfail($pontocoletas)->delete();
+        return redirect()->back();
     }
 }

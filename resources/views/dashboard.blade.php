@@ -24,7 +24,13 @@
                                         <td>{{$pontos->longitude}}</td>
                                         <td>{{$pontos->status}}</td>
 
-    
+                                        <td>
+                                            <form action="/point-delete/{{$pontos->id}}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input type="submit" value="deletar" class="btn-function">
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                         </table> 
