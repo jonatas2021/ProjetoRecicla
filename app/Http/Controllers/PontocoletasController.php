@@ -29,6 +29,7 @@ class PontocoletasController extends Controller
     public function store(Request $request)
     {
         Pontocoletas::create([
+            'nome' => $request->nome,
             'status' => $request->status,
             'latitude' => $request->latitude,
             'longitude' => $request->longitude,
@@ -61,6 +62,7 @@ class PontocoletasController extends Controller
     public function update(Request $request, $id)
     {
         $PointofColeta = Pontocoletas::findOrFail($id);
+        $PointofColeta ->nome = $request ->nome;
         $PointofColeta ->latitude = $request ->latitude;
         $PointofColeta ->longitude = $request ->longitude;
         $PointofColeta ->update();
