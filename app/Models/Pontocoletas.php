@@ -14,6 +14,7 @@ class Pontocoletas extends Model
 
     protected $fillable = [
         'nome',
+        'descricao',
         'status',
         'latitude',
         'longitude',

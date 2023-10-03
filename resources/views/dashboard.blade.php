@@ -11,6 +11,7 @@
             <form action="/add-pontocoleta" method="POST" id="formulario">
                         @csrf
                         <input type="text" name="nome" placeholder="nome" required>
+                        <input type="text" name="descricao" placeholder="descricao" required>
                         <input type="text" name="latitude" placeholder="latitude" required>
                         <input type="text" name="longitude" placeholder="longitude" required>
                         <input type="text" name="status" placeholder="status" required>
@@ -22,6 +23,7 @@
                              @foreach(Auth::user()->pontosColeta as $pontos)
                                     <tr>
                                         <td>{{$pontos->nome}}</td>
+                                        <td>{{$pontos->descricao}}</td>
                                         <td>{{$pontos->latitude}}</td>
                                         <td>{{$pontos->longitude}}</td>
                                         <td>{{$pontos->status}}</td>
