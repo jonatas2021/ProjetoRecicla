@@ -7,101 +7,60 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## About Laravel
 
-# ***Reciclaí***
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-## ***Projeto desenvolvido para disciplina de Projeto 1 no IFPE Campus Igarassu***
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-São os membros do projeto:
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## Learning Laravel
 
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-- [Caio de Sousa](https://www.github.com/CaioSousa32)
-- [Denilson de Oliveira](https://www.github.com/Denils0n)
-- [Layrton Wassermann](http://www.github.com/Layrton07)
-- [Lívia Sabino](https://github.com/liviasab)
-- [Jonatas Cândido](https://github.com/jonatas2021)
-- [Simeia Olimpea](https://github.com/SiOlimpia)
-  
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-O projeto foi desenvolvido através da disciplina de Projeto 1 no curso de TSI (Tecnólogo em Sistemas para Internet) no IFPE Campus Igarassu. A demanda para tal projeto partiu do [Professor Alexandre Magno Alves de Oliveira](mailto:alexandre.oliveira@igarassu.ifpe.edu.br) que atua na área de logística, ele busca formas de melhorar a sustentabilidade e a educação ambiental na cidade de Igarassu.
-</div>
-<center>
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## ***A solução***
+## Laravel Sponsors
 
-</center>
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-<div align="center" text-align="left">
+### Premium Partners
 
-O professor nos propôs uma ideia de uma solução para o descarte de pilhas e baterias que também incluiu uma forte conscientização para os usuários da aplicação.
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[Many](https://www.many.co.uk)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- **[DevSquad](https://devsquad.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[OP.GG](https://op.gg)**
+- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+- **[Lendio](https://lendio.com)**
 
-A aplicação consiste no cadastro de empresas que se registram na plataforma e, após uma análise da administração, podem criar pontos de coleta. Nesses pontos, será disponibilizado um local adequado para realizar o armazenamento temporário e, após acumular uma certa quantidade e/ou tempo, fazendo o descarte de maneira específica. Além disso, a aplicação permite que os cidadãos encontrem os pontos de coleta mais próximos por meio de localização e, assim, façam o descarte de forma adequada.
+## Contributing
 
-Nós, como estudantes do campus Igarassu, além de moradores da cidade, constatamos a falta de coleta seletiva. Quando desejamos fazer o descarte correto, não encontramos pontos próximos que recolham separadamente diferentes tipos de resíduos, como pilhas e baterias, por exemplo. E quando esses pontos existem, não encontramos uma plataforma atualizada que reúna essas informações. Além disso, a Lei 12.605, sancionada em 02 de agosto de 2010, traz a Política Nacional de Resíduos Sólidos (PNRS), uma lei que estabelece instrumentos e diretrizes para os setores públicos e as empresas lidarem com os resíduos gerados. Através da PNRS, é exigido que as organizações sejam transparentes com o gerenciamento de seus resíduos.
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-A PNRS possui 15 objetivos, incluindo:
+## Code of Conduct
 
-• A proteção da saúde pública e da qualidade ambiental;
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-• Não geração, redução, reutilização, reciclagem e tratamento dos resíduos sólidos, bem como disposição final ambientalmente adequada dos rejeitos;
+## Security Vulnerabilities
 
-• Estímulo à adoção de padrões sustentáveis de produção e consumo de bens e serviços;
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-• Adoção, desenvolvimento e aprimoramento de tecnologias limpas como forma de minimizar impactos ambientais;
+## License
 
-• Redução do volume e da periculosidade dos resíduos perigosos;
-
-• Incentivo à indústria da reciclagem, visando fomentar o uso de matérias-primas e insumos derivados de materiais recicláveis e reciclados.
-
-Portanto, a questão dos resíduos sólidos é relevante não apenas do ponto de vista ambiental, mas também do político, além de ser um problema de saúde pública, devido aos diversos riscos à saúde humana que o descarte incorreto do lixo pode trazer.
-
-</div>
-
-----------
-
-<center>
-
-## ***Como executar?***
-
-</center>
-
-Para que o aplicativo funcione em sua máquina, é necessário que algumas coisas estejam instaladas:
-
-</center>
-
-- [NodeJS](https://nodejs.org/pt-br)
-- [PHP](https://www.php.net/)
-- [Composer](https://getcomposer.org/)
-- [MySQL Workbench](https://dev.mysql.com/downloads/workbench/)
-- [Laravel](https://www.laravel.com)
-
-Após se certificar de que todos os pré-requisitos estão instalados adequadamente, siga os seguintes passos no seu terminal:
-
-1. Clonar este repositório clicando usando o comando: `git clone https://github.com/liviasab/Reciclai.git`;
-2. Instalar as dependencias do composer com o comando: `composer install`;
-3. Instalar as dependencias do npm com o comando: `npm install`;
-4. Rodar o servidor npm com o comando : `npm run dev`;
-5. Fazer uma copia e renomear o arquivo ".env.example" com o comando: `cp .env.example .env`;
-6. Editar o .env "Para acessar o banco de acordo com suas configurações";
-7. Criar as tabelas no seu database com o comando : `php artisan migrate`;
-8. Iniciar o servidor do php com o comando: `php artisan serve`;
-9. Acessar no navegador o ip e a porta que for exibido no terminal clicando no link exibido.
-
-<center>
-
-## O diferencial da nossa solução 
-
-</center>
-
-<div align="center" text-align="left">
-Nossa solução é local, voltada exclusivamente para Igarassu. Geralmente, os serviços de coleta personalizados atendem principalmente grandes centros urbanos, 
-e é improvável que alguém esteja disposto a fazer um deslocamento significativo para descartar seu lixo, pois os usuários buscam praticidade. Além disso, 
-contamos com uma parte Educacional, com o objetivo de desenvolver a conscientização ambiental em nossa comunidade.
-
-</div>
-
-
-
-
-  
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

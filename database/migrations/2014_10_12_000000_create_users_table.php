@@ -19,11 +19,6 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table ->string('phone');
-            $table ->string('cnpj');
-            $table ->string('cep');
-            $table ->string('type');
-        
         });
     }
 
