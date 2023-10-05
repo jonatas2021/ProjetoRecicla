@@ -26,7 +26,6 @@ O projeto foi desenvolvido através da disciplina de Projeto 1 no curso de TSI (
 
 </center>
 
-<div align="center" text-align="left">
 
 O professor nos propôs uma ideia de uma solução para o descarte de pilhas e baterias que também incluiu uma forte conscientização para os usuários da aplicação.
 
@@ -49,8 +48,6 @@ A PNRS possui 15 objetivos, incluindo:
 • Incentivo à indústria da reciclagem, visando fomentar o uso de matérias-primas e insumos derivados de materiais recicláveis e reciclados.
 
 Portanto, a questão dos resíduos sólidos é relevante não apenas do ponto de vista ambiental, mas também do político, além de ser um problema de saúde pública, devido aos diversos riscos à saúde humana que o descarte incorreto do lixo pode trazer.
-
-</div>
 
 ----------
 
@@ -88,8 +85,6 @@ Após se certificar de que todos os pré-requisitos estão instalados adequadame
 
 </center>
 
-<div align="center" text-align="left">
 Nossa solução é local, voltada exclusivamente para Igarassu. Geralmente, os serviços de coleta personalizados atendem principalmente grandes centros urbanos, 
 e é improvável que alguém esteja disposto a fazer um deslocamento significativo para descartar seu lixo, pois os usuários buscam praticidade. Além disso, 
 contamos com uma parte Educacional, com o objetivo de desenvolver a conscientização ambiental em nossa comunidade.
-</div>
