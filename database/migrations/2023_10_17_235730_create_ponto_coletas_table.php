@@ -14,6 +14,11 @@ return new class extends Migration
         Schema::create('ponto_coletas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->String('nome');
+            $table->String('complemento');
+            $table->String('longetude');
+            $table->String('latitude');
+            $table->foreignId('user_id');
         });
     }
 
