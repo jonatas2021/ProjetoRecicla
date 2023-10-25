@@ -12,7 +12,12 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Company/index', [
+
+            'company' => Auth::user()->company
+
+
+        ]);
     }
 
     /**
