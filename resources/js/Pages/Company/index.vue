@@ -1,7 +1,7 @@
 <script setup>
 
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-    import { Head, useForm } from "@inertiajs/vue3";
+    import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
+    import { Head, router, useForm } from "@inertiajs/vue3";
 
     defineProps({
 
@@ -25,6 +25,27 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 
 
     })
+
+    const add = () => {
+
+
+        createForm.post(
+
+            router('company.store'), {
+
+
+                onFinish: () => {
+
+                }
+
+
+            }
+
+
+        )
+
+
+    }
 
 
 
@@ -54,11 +75,22 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         Minha Empresa
+                        <div v-if="company != null">
+                            {{ company.name }}
+                            {{ company.cnpj }}
 
-                        {{ company }}
-
+                        </div>
                     </div>
 
+                    <div v-if="company == null">
+                        <form @submit.prevent="add">
+
+                            <input type="text" v-model="createForm.name">
+                            <input type="text" v-model="createForm.cnpj">
+                            <button>Cadastrar</button>
+
+                        </form>
+                    </div>
                 </div>
 
             </div>
