@@ -6,6 +6,9 @@ use App\Models\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Redirect;
+
+
 
 class CompanyController extends Controller
 {
@@ -61,11 +64,12 @@ class CompanyController extends Controller
     public function edit(Company $company)
     {
 
-        Company::create([
+        return Inertia::render('Company/edit', [
 
-            'name' => $request -> name,
-            'cnpj' => $request -> cnpj,
-            'user_id' => Auth::user()->id
+
+
+            'company' => $company
+
 
 
         ]);
@@ -77,7 +81,9 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        //
+        $company->update($request->all());
+
+        return Redirect::route('company.index');
     }
 
     /**
