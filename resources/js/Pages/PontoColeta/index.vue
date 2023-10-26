@@ -3,6 +3,28 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import { Head, useForm } from "@inertiajs/vue3";
 
+const createForm = useForm({
+
+nome: '',
+complemento: '',
+longetude: '',
+latitude: '',
+
+})
+
+const add = () => { createForm.post(
+
+    route('pontoColeta.store'), {
+
+        onFinish: () => {
+
+        }
+
+    }
+
+
+)}
+
 </script>
 <template>
 
@@ -27,23 +49,27 @@ import { Head, useForm } from "@inertiajs/vue3";
                     </div>
 
                     <div>
-                        <form @submit.prevent="add">
+                        <center>
 
-                            <label>Nome</label>
-                            <input type="text" v-model="createForm.name">
-                            <br>
-                            <label>Componente</label>
-                            <input type="text" v-model="createForm.componente">
-                            <br>
-                            <label>Longitude</label>
-                            <input type="text" v-model="createForm.longitude">
-                            <br>
-                            <label>Latitude</label>
-                            <input type="text" v-model="createForm.latitude">
-                            <br><hr>
-                            <button>Cadastrar</button>
+                            <form @submit.prevent="add">
 
-                        </form>
+                                <label>Nome</label>
+                                <input type="text" v-model="createForm.nome">
+                                <br>
+                                <label>Complemento</label>
+                                <input type="text" v-model="createForm.complemento">
+                                <br>
+                                <label>Longitude</label>
+                                <input type="text" v-model="createForm.longetude">
+                                <br>
+                                <label>Latitude</label>
+                                <input type="text" v-model="createForm.latitude">
+                                <br><hr>
+                                <button>Cadastrar</button>
+
+                            </form>
+
+                        </center>
                     </div>
                 </div>
             </div>

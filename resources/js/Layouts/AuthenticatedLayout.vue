@@ -39,6 +39,12 @@ const showingNavigationDropdown = ref(false);
 
                                 </NavLink>
 
+                                <NavLink :href="route('pontoColeta.index')" :active="route().current('pontoColeta')">
+
+                                    Ponto Coleta
+
+                                </NavLink>
+
 
                             </div>
                         </div>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 use App\Models\PontoColeta;
 use Illuminate\Http\Request;
 
@@ -12,7 +14,11 @@ class PontoColetaController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('PontoColeta/index', [
+
+            'PontoColeta' => Auth::user()->PontoColeta
+
+        ]);
     }
 
     /**
@@ -28,7 +34,15 @@ class PontoColetaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        PontoColeta::create([
+
+            'nome' => $request -> nome,
+            'complemento' => $request -> complemento,
+            'longetude' => $request -> longetude,
+            'latitude' => $request -> latitude,
+            'user_id' => Auth::user()->id
+
+        ]);
     }
 
     /**

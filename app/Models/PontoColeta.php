@@ -12,9 +12,9 @@ class PontoColeta extends Model
     protected $fillable = [
 
 
-        'name',
-        'componentes',
-        'longitude',
+        'nome',
+        'complemento',
+        'longetude',
         'latitude',
         'user_id',
 
