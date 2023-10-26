@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class PontoColeta extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+
+
+        'name',
+        'componentes',
+        'longitude',
+        'latitude',
+        'user_id',
+
+
+    ];
 }
