@@ -35,7 +35,16 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        Company::create([
+
+
+            'name' => $request -> name,
+            'cnpj' => $request -> cnpj,
+            'user_id' => Auth::user()->id
+
+
+        ]);
     }
 
     /**
@@ -51,7 +60,16 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        //
+
+        Company::create([
+
+            'name' => $request -> name,
+            'cnpj' => $request -> cnpj,
+            'user_id' => Auth::user()->id
+
+
+        ]);
+
     }
 
     /**

@@ -1,7 +1,7 @@
 <script setup>
 
     import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-    import { Head, router, useForm } from "@inertiajs/vue3";
+    import { Head, useForm } from "@inertiajs/vue3";
 
     defineProps({
 
@@ -31,7 +31,7 @@
 
         createForm.post(
 
-            router('company.store'), {
+            route('company.store'), {
 
 
                 onFinish: () => {
