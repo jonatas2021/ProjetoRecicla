@@ -47,6 +47,14 @@
 
     }
 
+    const remove = (company) => {
+
+        useForm({}).delete(
+            route('company.destroy', company)
+        )
+
+    }
+
 
 
 
@@ -78,6 +86,7 @@
                         <div v-if="company != null">
                             {{ company.name }}
                             {{ company.cnpj }}
+                            <a href="#" @click.provent="remove(company)" style="border: 1px solid black;">Apagar</a>
 
                         </div>
                     </div>
