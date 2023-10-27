@@ -16,9 +16,9 @@ return new class extends Migration
             $table->timestamps();
             $table->String('nome');
             $table->String('complemento');
-            $table->String('longetude');
+            $table->String('longitude');
             $table->String('latitude');
-            $table->foreignId('user_id');
+            $table->foreignId('company_id');
         });
     }
 

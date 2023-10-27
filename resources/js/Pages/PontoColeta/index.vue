@@ -3,12 +3,20 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import { Head, useForm } from "@inertiajs/vue3";
 
+defineProps({
+
+    PontosColeta:{
+        type:Object,
+        reequired: true,
+    }
+})
+
 const createForm = useForm({
 
-nome: '',
-complemento: '',
-longetude: '',
-latitude: '',
+    nome: '',
+    complemento: '',
+    longitude: '',
+    latitude: '',
 
 })
 
@@ -24,6 +32,15 @@ const add = () => { createForm.post(
 
 
 )}
+
+const remove = (pontoColeta) => {
+
+    useForm({}).delete(
+
+        route('pontoColeta.destroy', pontoColeta)
+
+    )
+}
 
 </script>
 <template>
@@ -46,6 +63,16 @@ const add = () => { createForm.post(
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         Meu Ponto de Coleta
+
+                        <div v-for="PontoColeta in PontosColeta">
+
+                            {{ PontoColeta.nome }}
+                            {{ PontoColeta.complemento }}
+                            {{ PontoColeta.longitude }}
+                            {{ PontoColeta.latitude }}
+
+                            <a href="#" @click.provente="remove(PontoColeta)" style="border: black solid 2px">Deletar</a>
+                        </div>
                     </div>
 
                     <div>
@@ -60,7 +87,7 @@ const add = () => { createForm.post(
                                 <input type="text" v-model="createForm.complemento">
                                 <br>
                                 <label>Longitude</label>
-                                <input type="text" v-model="createForm.longetude">
+                                <input type="text" v-model="createForm.longitude">
                                 <br>
                                 <label>Latitude</label>
                                 <input type="text" v-model="createForm.latitude">

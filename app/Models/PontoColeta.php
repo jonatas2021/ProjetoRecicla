@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Model;
 
 class PontoColeta extends Model
@@ -14,10 +15,14 @@ class PontoColeta extends Model
 
         'nome',
         'complemento',
-        'longetude',
+        'longitude',
         'latitude',
-        'user_id',
-
+        'company_id',
 
     ];
+
+    function company(): BelongsTo
+    {
+        return $this->belongsTo(Company::class, 'company_id');
+    }
 }

@@ -16,7 +16,7 @@ class PontoColetaController extends Controller
     {
         return Inertia::render('PontoColeta/index', [
 
-            'PontoColeta' => Auth::user()->PontoColeta
+            'PontosColeta' => Auth::user()->company->pontosColeta
 
         ]);
     }
@@ -38,9 +38,9 @@ class PontoColetaController extends Controller
 
             'nome' => $request -> nome,
             'complemento' => $request -> complemento,
-            'longetude' => $request -> longetude,
+            'longitude' => $request -> longitude,
             'latitude' => $request -> latitude,
-            'user_id' => Auth::user()->id
+            'company_id' => Auth::user()->company->id
 
         ]);
     }
@@ -74,6 +74,6 @@ class PontoColetaController extends Controller
      */
     public function destroy(PontoColeta $pontoColeta)
     {
-        //
+        $pontoColeta -> delete();
     }
 }
