@@ -96,6 +96,7 @@
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         Minha Empresa
                         <div v-if="company != null">
+
                             {{ company.name }}
                             {{ company.cnpj }}
                             <a href="#" @click.provent="remove(company)" style="border: 1px solid black;">Apagar</a>

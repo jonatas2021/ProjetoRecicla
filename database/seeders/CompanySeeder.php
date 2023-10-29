@@ -14,6 +14,10 @@ class CompanySeeder extends Seeder
     public function run(): void
     {
         //
-        Company::factory()->count(10)->create(); 
+        for ($i = 0; $i < 5; $i++) {
+            
+            Company::factory()->state(["user_id" => $i])->create(); 
+        }
+
     }
 }
