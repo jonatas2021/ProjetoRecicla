@@ -56,7 +56,7 @@
                             {{ Points.name }} <br>
                             {{ Points.complement }} <br>
                             {{ Points.latitude }} <br>
-                            {{ Points.longitude }} <br>sss
+                            {{ Points.longitude }} <br>
 
                     </div>
 

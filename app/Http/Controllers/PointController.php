@@ -6,6 +6,8 @@ use App\Models\Point;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+
 
 class PointController extends Controller
 {
@@ -39,8 +41,8 @@ class PointController extends Controller
 
             'name' => $request -> name,
             'complement' => $request -> complement,
-            'longitude' => $request -> longitude,
             'latitude' => $request -> latitude,
+            'longitude' => $request -> longitude,
             'company_id' => Auth::user()->company->id
 
 
@@ -60,7 +62,11 @@ class PointController extends Controller
      */
     public function edit(Point $point)
     {
-        //
+        return Inertia::render('Point/edit', [
+
+            'Points' => $point
+
+        ]);
     }
 
     /**
@@ -68,7 +74,9 @@ class PointController extends Controller
      */
     public function update(Request $request, Point $point)
     {
-        //
+        $point->update($request->all());
+
+        return Redirect::route('point.index');
     }
 
      /**
