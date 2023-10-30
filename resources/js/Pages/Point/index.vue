@@ -36,7 +36,13 @@
         )
     }
 
+    const remove = (Point) => {
 
+        useForm({}).delete(
+            route('point.destroy', Point)
+        )
+
+    }
 
 </script>
 
@@ -72,6 +78,7 @@
                         {{ Point.latitude }} <br>
                         {{ Point.longitude }} <br>
 
+                        <a href="#" @click.provent="remove(Point.id)" style="margin: 5px;border: 1px solid black;">DEL</a>
 
                     </div>
 
