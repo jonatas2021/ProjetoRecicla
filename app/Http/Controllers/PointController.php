@@ -76,7 +76,7 @@ class PointController extends Controller
      */
     public function destroy(Point $point)
     {
-        //
+        $point -> delete();
     }
 
 
