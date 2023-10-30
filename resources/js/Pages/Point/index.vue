@@ -14,7 +14,27 @@
 
     })
 
-    
+    const createForm = useForm({
+
+        name: '',
+        complement: '',
+        longitude: '',
+        latitude: '',
+
+    })
+
+    const add = () => {
+
+        createForm.post(
+
+            route('point.store'), {
+
+                onFinish: () => {
+
+               }
+            }
+        )
+    }
 
 
 
@@ -53,6 +73,26 @@
                         {{ Point.latitude }} <br>
 
 
+                    </div>
+
+                    <hr>
+
+                    <div class="p-6 text-gray-900 dark:text-gray-100">
+
+                        <form @submit.prevent="add">
+
+                            <label>Name</label>
+                            <input type="text" v-model="createForm.name">
+                            <label>complement</label>
+                            <input type="text" v-model="createForm.complement">
+                            <label>latitude</label>
+                            <input type="text" v-model="createForm.latitude">
+                            <label>longitude</label>
+                            <input type="text" v-model="createForm.longitude">
+
+                            <button>Salvar</button>
+
+                        </form>
                     </div>
 
                 </div>
