@@ -4,6 +4,8 @@
     import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
     import { Head, useForm } from "@inertiajs/vue3";
 
+    
+
 </script>
 
 <template>
@@ -28,9 +30,16 @@
                         My Point
                     </div>
 
-                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <hr>
 
-                        
+                    <div class="p-6 text-gray-900 dark:text-gray-100" v-for="Point in Points">
+
+                        {{ Point.id }} <br>
+                        {{ Point.name }} <br>
+                        {{ Point.complement }} <br>
+                        {{ Point.longitude }} <br>
+                        {{ Point.latitude }} <br>
+
 
                     </div>
 
