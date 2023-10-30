@@ -4,7 +4,19 @@
     import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
     import { Head, useForm } from "@inertiajs/vue3";
 
+    defineProps({
+
+        Points:{
+
+            type:Object,
+            required: true
+        }
+
+    })
+
     
+
+
 
 </script>
 
