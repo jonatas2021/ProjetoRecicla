@@ -34,7 +34,17 @@ class PointController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Point::create([
+
+
+            'name' => $request -> name,
+            'complement' => $request -> complement,
+            'longitude' => $request -> longitude,
+            'latitude' => $request -> latitude,
+            'company_id' => Auth::user()->company->id
+
+
+        ]);
     }
 
     /**
@@ -68,6 +78,6 @@ class PointController extends Controller
     {
         //
     }
-    
+
 
 }
