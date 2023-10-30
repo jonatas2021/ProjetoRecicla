@@ -31,9 +31,9 @@ class Company extends Model
 
     }
 
-    function pontosColeta(): HasMany
+    function point(): HasMany
     {
-        return $this->hasMany(PontoColeta::class, 'company_id');
+        return $this->hasMany(Point::class, 'company_id');
     }
 
 }
