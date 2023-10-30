@@ -69,8 +69,8 @@
                         {{ Point.id }} <br>
                         {{ Point.name }} <br>
                         {{ Point.complement }} <br>
-                        {{ Point.longitude }} <br>
                         {{ Point.latitude }} <br>
+                        {{ Point.longitude }} <br>
 
 
                     </div>
