@@ -44,6 +44,16 @@
 
     }
 
+    const edit = (Point) =>{
+
+        useForm({}).get(
+
+            route('point.edit', Point)
+
+        )
+
+    }
+
 </script>
 
 <template>
@@ -79,6 +89,7 @@
                         {{ Point.longitude }} <br>
 
                         <a href="#" @click.provent="remove(Point.id)" style="margin: 5px;border: 1px solid black;">DEL</a>
+                        <a href="#" @click.provent="edit(Point.id)" style="margin: 5px;border: 1px solid black;">EDIT</a>
 
                     </div>
 
