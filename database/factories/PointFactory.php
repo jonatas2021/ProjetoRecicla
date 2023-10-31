@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Company;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Point>
@@ -17,7 +18,12 @@ class PointFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name'=> fake()->name(),
+            'complement'=> fake()->paragraph(),
+            'latitude'=> fake()->numberBetween(10000,200000),
+            'longitude'=> fake()->numberBetween(10000,200000),
+            'company_id'=> Company::all()->random()->id,
+
         ];
     }
 }

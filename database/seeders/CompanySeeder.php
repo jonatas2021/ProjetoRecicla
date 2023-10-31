@@ -8,15 +8,15 @@ use App\Models\Company;
 
 class CompanySeeder extends Seeder
 {
-    /**
+    /** 
      * Run the database seeds.
      */
     public function run(): void
     {
         //
         for ($i = 0; $i < 5; $i++) {
-            
-            Company::factory()->state(["user_id" => $i])->create(); 
+
+            Company::factory()->state(["user_id" => $i])->create();
         }
 
     }
