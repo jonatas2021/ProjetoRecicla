@@ -19,7 +19,7 @@ class PointFactory extends Factory
     {
         return [
             'name'=> fake()->name(),
-            'complement'=> fake()->paragraph(),
+            'complement'=> fake()->text(20),
             'latitude'=> fake()->numberBetween(10000,200000),
             'longitude'=> fake()->numberBetween(10000,200000),
             'company_id'=> Company::all()->random()->id,
