@@ -23,7 +23,7 @@ class PointFactory extends Factory
             'latitude'=> fake()->numberBetween(10000,200000),
             'longitude'=> fake()->numberBetween(10000,200000),
             'company_id'=> Company::all()->random()->id,
-
+            'status'=> fake()->numberBetween(0,0),
         ];
     }
 }
