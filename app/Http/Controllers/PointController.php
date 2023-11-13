@@ -43,7 +43,9 @@ class PointController extends Controller
             'complement' => $request -> complement,
             'latitude' => $request -> latitude,
             'longitude' => $request -> longitude,
-            'company_id' => Auth::user()->company->id
+            'company_id' => Auth::user()->company->id,
+            'status' => '0'
+            //'status' => $request -> status
 
 
         ]);

@@ -20,6 +20,7 @@
         complement: '',
         longitude: '',
         latitude: '',
+        status: '',
 
     })
 
@@ -28,10 +29,7 @@
         createForm.post(
 
             route('point.store'), {
-
-                onFinish: () => {
-
-               }
+                onFinish: () => {}
             }
         )
     }
@@ -47,9 +45,7 @@
     const edit = (Point) =>{
 
         useForm({}).get(
-
             route('point.edit', Point)
-
         )
 
     }
@@ -87,6 +83,7 @@
                         {{ Point.complement }} <br>
                         {{ Point.latitude }} <br>
                         {{ Point.longitude }} <br>
+                        {{ Point.status }} <br>
 
                         <a href="#" @click.provent="remove(Point.id)" style="margin: 5px;border: 1px solid black;">DEL</a>
                         <a href="#" @click.provent="edit(Point.id)" style="margin: 5px;border: 1px solid black;">EDIT</a>
@@ -107,6 +104,8 @@
                             <input type="text" v-model="createForm.latitude">
                             <label>longitude</label>
                             <input type="text" v-model="createForm.longitude">
+                            <!-- <label>status</label>
+                            <input type="text" v-model="createForm.status"> -->
 
                             <button>Salvar</button>
 

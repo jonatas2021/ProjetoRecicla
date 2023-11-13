@@ -18,6 +18,7 @@ class Point extends Model
         'longitude',
         'latitude',
         'company_id',
+        'status'
 
     ];
 

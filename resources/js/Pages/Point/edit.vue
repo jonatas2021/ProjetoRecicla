@@ -19,6 +19,7 @@
         complement: '',
         latitude: '',
         longitude: '',
+        status: '',
 
     })
 
@@ -57,6 +58,8 @@
                             {{ Points.complement }} <br>
                             {{ Points.latitude }} <br>
                             {{ Points.longitude }} <br>
+                            {{ Points.status }} <br>
+
 
                     </div>
 
@@ -70,6 +73,7 @@
                             <input type="text" v-model="createForm.complement">
                             <input type="text" v-model="createForm.latitude">
                             <input type="text" v-model="createForm.longitude">
+                            <input type="text" v-model="createForm.status">
                             <button>salvar</button>
 
                         </form>
