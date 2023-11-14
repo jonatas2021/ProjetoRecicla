@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Adm;
 use Illuminate\Http\Request;
-
+use Inertia\Inertia;
+use App\Models\Point;
 class AdmController extends Controller
 {
     /**
@@ -12,7 +13,16 @@ class AdmController extends Controller
      */
     public function index()
     {
-        //
+
+        return Inertia::render('Adm/index',[
+
+            'Points' => Point::all()
+
+
+
+        ]);
+
+
     }
 
     /**

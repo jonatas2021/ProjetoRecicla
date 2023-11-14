@@ -4,6 +4,7 @@
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PointController;
+use App\Http\Controllers\AdmController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -40,7 +41,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/company', CompanyController::class);
     Route::resource('/point', PointController::class);
-
+    Route::resource('/adm', AdmController::class);
 
 });
 

@@ -52,7 +52,7 @@ class User extends Authenticatable
 
     public function adm(): HasOne
     {
-        return $this->hasOne(Adm::class);
+        return $this->hasOne(Company::class);
     }
 
 

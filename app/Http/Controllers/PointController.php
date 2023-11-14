@@ -64,9 +64,11 @@ class PointController extends Controller
      */
     public function edit(Point $point)
     {
+        $adm = Auth::user()->adm;
         return Inertia::render('Point/edit', [
 
-            'Points' => $point
+            'Points' => $point,
+            'Adm' =>$adm
 
         ]);
     }
@@ -76,9 +78,36 @@ class PointController extends Controller
      */
     public function update(Request $request, Point $point)
     {
-        $point->update($request->all());
+    
+        if(Auth::user()->adm != null){
 
+            $point->update([
+
+            
+                'name' => $request->name,
+                'complement'=> $request->complement,
+                'longitude'=> $request->longitude,
+                'latitude'=> $request->latitude,
+                'status'=>"1"
+
+
+
+            ]);
+    
+
+            
+            return Redirect::route('adm.index');
+
+        }else {
+
+            $point->update($request->all());
+
+
+        }
+    
+         
         return Redirect::route('point.index');
+    
     }
 
      /**

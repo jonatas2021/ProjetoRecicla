@@ -3,23 +3,31 @@
     import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
     import { Head, useForm } from "@inertiajs/vue3";
 
-    defineProps({
+    const dados =  defineProps({
 
         Points:{
 
             type:Object,
             required: true
+        },
+        
+        Adm: {
+
+            type:Object,
+            require: true
+
+
         }
 
     })
 
     const createForm = useForm({
 
-        name: '',
-        complement: '',
-        latitude: '',
-        longitude: '',
-        status: '',
+        name: dados.Points.name,
+        complement: dados.Points.complement,
+        latitude: dados.Points.latitude,
+        longitude: dados.Points.longitude,
+        status: dados.Points.status,
 
     })
 
@@ -58,13 +66,16 @@
                             {{ Points.complement }} <br>
                             {{ Points.latitude }} <br>
                             {{ Points.longitude }} <br>
-                            {{ Points.status }} <br>
 
 
                     </div>
 
                     <hr>
+                    <div v-if="Adm != null">
 
+                        <a href="#" @click.provent="update(Points.id)">Aprovar</a>
+
+                    </div>
                     <div class="p-6 text-gray-900 dark:text-gray-100">
 
                         <form @submit.prevent="update(Points.id)">
@@ -73,7 +84,6 @@
                             <input type="text" v-model="createForm.complement">
                             <input type="text" v-model="createForm.latitude">
                             <input type="text" v-model="createForm.longitude">
-                            <input type="text" v-model="createForm.status">
                             <button>salvar</button>
 
                         </form>
