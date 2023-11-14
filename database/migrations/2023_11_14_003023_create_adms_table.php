@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('adms', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('user_id')
+            $table->foreignId('user_id');
         });
     }
 

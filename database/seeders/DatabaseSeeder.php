@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
 
             UserSeeder::class,
             CompanySeeder::class,
-            PointSeeder::class
+            PointSeeder::class,
+            AdmSeeder::class
 
 
         ]);

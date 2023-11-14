@@ -17,7 +17,7 @@ class AdmFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => '1',
         ];
     }
 }

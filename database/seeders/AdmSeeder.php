@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Adm;
+
 
 class AdmSeeder extends Seeder
 {
@@ -13,5 +15,6 @@ class AdmSeeder extends Seeder
     public function run(): void
     {
         //
+        Adm::factory()->create();
     }
 }
