@@ -62,8 +62,9 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
-                        My Point
+                        Point
                     </div>
+                    
 
                     <hr>
 
@@ -75,6 +76,8 @@
                         {{ Point.latitude }} <br>
                         {{ Point.longitude }} <br>
                         {{ Point.status  }} <br>
+                       
+
                         <a href="#" @click.provent="remove(Point.id)" style="margin: 5px;border: 1px solid black;">DEL</a>
                         
                         <a href="#" @click.provent="edit(Point.id)" style="margin: 5px;border: 1px solid black;">EDIT</a>

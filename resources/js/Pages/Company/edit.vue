@@ -3,7 +3,7 @@
     import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
     import { Head, useForm } from "@inertiajs/vue3";
 
-    defineProps({
+    const dados =  defineProps({
 
 
         company:{
@@ -22,8 +22,8 @@
 
     const createForm = useForm({
 
-        name: "",
-        cnpj: ""
+        name: dados.company.name,
+        cnpj: dados.company.cnpj
 
 
 
@@ -68,10 +68,6 @@
                         Editando
 
                         <div>
-
-                            {{ company }}
-
-
 
                             <form @submit.prevent="update(company.id)">
 
