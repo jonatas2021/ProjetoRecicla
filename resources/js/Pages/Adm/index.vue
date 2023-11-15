@@ -23,9 +23,10 @@
     })
 
     const remove = (Point) => {
-
+        const id = prompt('esse id mesmo, mano?', Point.id)
         useForm({}).delete(
-            route('point.destroy', Point)
+
+            route('point.destroy', id)
         )
 
     }
@@ -78,7 +79,7 @@
                         {{ Point.status  }} <br>
                        
 
-                        <a href="#" @click.provent="remove(Point.id)" style="margin: 5px;border: 1px solid black;">DEL</a>
+                        <a href="#" @click.provent="remove(Point.id)" style="margin: 5px;border: 1px solid black;" >DEL</a>
                         
                         <a href="#" @click.provent="edit(Point.id)" style="margin: 5px;border: 1px solid black;">EDIT</a>
 

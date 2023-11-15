@@ -7,7 +7,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-
+use Session;
 
 class PointController extends Controller
 {
@@ -93,9 +93,10 @@ class PointController extends Controller
 
 
             ]);
-    
 
-            
+            Session::flash('message', 'This is a message!'); 
+
+
             return Redirect::route('adm.index');
 
         }else {

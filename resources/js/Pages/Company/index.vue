@@ -99,7 +99,9 @@
 
                             {{ company.name }}
                             {{ company.cnpj }}
-                            <a href="#" @click.provent="remove(company)" style="border: 1px solid black;">Apagar</a>
+
+                            <a href="#" @click.provent="remove(company)" style="border: 1px solid black;"  >Apagar</a>
+                            
                             <a href="#" @click.provent="edit(company)" style="border: 1px solid black;">Editar</a>
 
                         </div>

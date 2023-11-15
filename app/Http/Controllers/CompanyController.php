@@ -94,5 +94,6 @@ class CompanyController extends Controller
 
         $company -> delete();
 
+
     }
 }
