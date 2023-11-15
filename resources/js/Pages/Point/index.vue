@@ -35,10 +35,17 @@
     }
 
     const remove = (Point) => {
+        const id = confirm('Vai apagar T_T');
 
-        useForm({}).delete(
-            route('point.destroy', Point)
-        )
+        if(id != false){
+
+            useForm({}).delete(
+    
+                route('point.destroy', Point),
+            )
+
+
+        }
 
     }
 

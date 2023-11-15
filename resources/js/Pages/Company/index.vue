@@ -48,10 +48,17 @@
     }
 
     const remove = (company) => {
+        const id = confirm('Vai apagar T_T');
 
-        useForm({}).delete(
-            route('company.destroy', company)
-        )
+        if(id != false){
+
+            useForm({}).delete(
+    
+                route('company.destroy', company),
+            )
+
+
+        }
 
     }
 
