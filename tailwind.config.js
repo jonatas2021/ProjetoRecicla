@@ -12,6 +12,10 @@ export default {
 
     theme: {
         extend: {
+            backgroundColor: {
+                'amber':'#ffc727',
+            },
+            
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
