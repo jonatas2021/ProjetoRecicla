@@ -36,6 +36,13 @@ class PointController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'name' => ['required','string','max:100','min:3'],
+            'complement' => ['required', 'string', 'max:14', 'min:14'],
+            'latitude' => ['required', 'string', 'max:25', 'min:10'],
+            'longitude' => ['required', 'string', 'max:25', 'min:10'],
+        ]);
+
         Point::create([
 
 
@@ -78,12 +85,19 @@ class PointController extends Controller
      */
     public function update(Request $request, Point $point)
     {
-    
+
         if(Auth::user()->adm != null){
+
+            $validated = $request->validate([
+                'name' => ['required','string','max:100','min:3'],
+                'complement' => ['required', 'string', 'max:25', 'min:10'],
+                'latitude' => ['required', 'string', 'max:25', 'min:10'],
+                'longitude' => ['required', 'string', 'max:25', 'min:10'],
+            ]);
 
             $point->update([
 
-            
+
                 'name' => $request->name,
                 'complement'=> $request->complement,
                 'longitude'=> $request->longitude,
@@ -94,7 +108,7 @@ class PointController extends Controller
 
             ]);
 
-            Session::flash('message', 'This is a message!'); 
+            Session::flash('message', 'This is a message!');
 
 
             return Redirect::route('adm.index');
@@ -105,10 +119,10 @@ class PointController extends Controller
 
 
         }
-    
-         
+
+
         return Redirect::route('point.index');
-    
+
     }
 
      /**
