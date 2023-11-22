@@ -24,8 +24,22 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Gate::define('del', function($user,Point $point){
+        Gate::define('delPoint', function($user,Point $point){
+            if($user->adm){
+
+                return true;
+            }
             return $user->company -> id === $point -> company_id;
+        });
+
+        Gate::define('delCompany', function($user, Company $company){
+    
+            if($user->adm){
+
+                return true;
+            }
+            return $user->id === $company->user_id;
+
         });
     }
 }

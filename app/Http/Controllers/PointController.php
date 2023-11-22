@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Gate;
-use Session;
 
 class PointController extends Controller
 {
@@ -125,7 +124,7 @@ class PointController extends Controller
     {
 
 
-        if (!Gate::allows('del', $point)) {
+        if (Gate::denies('delPoint', $point)) {
             
            abort(403); 
         }

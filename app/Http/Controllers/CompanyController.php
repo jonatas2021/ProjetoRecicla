@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Gate;
 
 
 
@@ -92,6 +93,10 @@ class CompanyController extends Controller
     public function destroy(Company $company)
     {
 
+        if (Gate::denies('delCompany', $company)) {
+            
+           abort(403); 
+        }
         $company -> delete();
 
 
