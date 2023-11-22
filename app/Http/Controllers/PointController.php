@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Gate;
 use Session;
 
 class PointController extends Controller
@@ -36,6 +37,12 @@ class PointController extends Controller
      */
     public function store(Request $request)
     {
+
+
+
+
+
+
         Point::create([
 
 
@@ -116,7 +123,14 @@ class PointController extends Controller
      */
     public function destroy(Point $point)
     {
-        $point -> delete();
+
+
+        if (!Gate::allows('del', $point)) {
+            
+           abort(403); 
+        }
+       $point->delete(); 
+
     }
 
 

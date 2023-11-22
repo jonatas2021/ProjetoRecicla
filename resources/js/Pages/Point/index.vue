@@ -36,7 +36,6 @@
 
     const remove = (Point) => {
         const id = confirm('Vai apagar T_T');
-
         if(id != false){
 
             useForm({}).delete(
