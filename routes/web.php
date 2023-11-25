@@ -44,9 +44,19 @@ Route::middleware('auth')->group(function () {
     Route::resource('/adm', AdmController::class);
 });
 
-    Route::get('/map', function (){
 
-        return Inertia::render('Map/index',['Points' => Point::all()]);
 
-    });
+Route::get('/map', function (){
+
+    return Inertia::render('Map/index',['Points' => Point::all()]);
+        
+});
+    
+
+
+
+
+
+
+
 require __DIR__.'/auth.php';

@@ -100,7 +100,6 @@ class PointController extends Controller
 
             ]);
 
-            Session::flash('message', 'This is a message!'); 
 
 
             return Redirect::route('adm.index');
