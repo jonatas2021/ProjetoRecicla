@@ -25,8 +25,11 @@
     <div v-for="Point in Points">
 
 
-        {{ Point }}
-
+        {{ Point.name }}
+        {{ Point.complement }}
+        {{ Point.latitude}}
+        {{ Point.longitude}}
+        <br>
 
 
     </div>
