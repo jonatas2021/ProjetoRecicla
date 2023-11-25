@@ -8,7 +8,7 @@ use App\Http\Controllers\AdmController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
+use App\Models\Point;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,7 +42,11 @@ Route::middleware('auth')->group(function () {
     Route::resource('/company', CompanyController::class);
     Route::resource('/point', PointController::class);
     Route::resource('/adm', AdmController::class);
-
 });
 
+    Route::get('/map', function (){
+
+        return Inertia::render('Map/index',['Points' => Point::all()]);
+
+    });
 require __DIR__.'/auth.php';
