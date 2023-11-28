@@ -9,6 +9,9 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Models\Point;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,8 +33,13 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    return Inertia::render('Dashboard', ['can'=>[
+        'isAdm' => Auth::user()->can('isAdm', User::class)
+        ]
+    ]);
+
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -46,11 +54,11 @@ Route::middleware('auth')->group(function () {
 
 
 
-Route::get('/map', function (){
+    Route::get('/map', function (){
 
-    return Inertia::render('Map/index',['Points' => Point::all()]);
-        
-});
+        return Inertia::render('Map/index',['Points' => Point::all()]);
+    })->name('map');
+
     
 
 
