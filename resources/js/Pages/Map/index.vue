@@ -10,11 +10,8 @@
 
             type:Object,
             required: true
-                
-
-
-
         }
+
     }) 
 
 

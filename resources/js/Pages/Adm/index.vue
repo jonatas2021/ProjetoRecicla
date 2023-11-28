@@ -9,7 +9,7 @@
 
             type:Object,
             required: true
-        }
+        },
 
     })
 
