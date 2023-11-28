@@ -15,9 +15,12 @@ export default {
             backgroundColor: {
                 'amber':'#ffc727',
             },
+            textColor: {
+                'amber':'#ffc727',
+            },
             
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['poppins', ...defaultTheme.fontFamily.sans],
             },
         },
     },
