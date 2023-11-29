@@ -22,6 +22,9 @@ export default {
             fontFamily: {
                 sans: ['poppins', ...defaultTheme.fontFamily.sans],
             },
+            borderColor: {
+                'amber':'#ffc727',
+            },
         },
     },
 
