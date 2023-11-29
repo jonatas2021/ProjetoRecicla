@@ -5,10 +5,14 @@
     <div class="box-1 sm:position:relative right-0">
         <div class="grafic-color-yellow">
             <div class="card-box w-full grid grid-cols-2">
-                <div class="card-text">
-                    <div class="text-box">
-                        <h1>lorem ipsum</h1>
-                        <p class="break-words">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem adipisci molestias iure, doloremque natus corporis officiis vel itaque corrupti. Dignissimos quia porro autem laboriosam aperiam rem pariatur facere iusto repellendus!</p>
+                <div class="card-text flex items-center justify-center">
+                    <div class="text-box w-3/4 break-all">
+                        <h2 class="text-6xl font-extrabold mb-24">Introdução</h2>
+                        <p class="break-words">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+                        <div class="box-btn grid grid-cols-2 w-3/4 mt-16 gap-6">
+                            <a href="" class="border border-solid border-amber text-center bg-amber h-9 flex items-center justify-center transition duration-1000 rounded-sm focus:outline-red-500">Ponto de coleta</a>
+                            <a href="" class="border-2 border-solid border-black text-center h-9 flex items-center justify-center transition duration-1000 rounded-sm focus:outline focus:outline-2 focus:outline-red-500">Sobre</a>
+                        </div>
                     </div>
                 </div>
                 <div class="card-image relative">
