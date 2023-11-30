@@ -11,8 +11,8 @@
                         <p class="mb-8">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
                         <a href="" class="border border-solid border-newBlue text-center text-white bg-newBlue h-9 flex items-center justify-center w-29 gap-6">Localizar</a>
                         <div class="information-box grid grid-cols-2 grid-rows-2 items-start gap-x-6 items-center">
-                            <div class="red w-10 h-10"></div>
-                            <div class="blue w-10 h-10"></div>
+                            <div class="icon-left w-10 h-10"></div>
+                            <div class="icon-right w-10 h-10"></div>
                             <div class="text-box-2">
                                 <h5 class="mb-4 font-medium text-xl">Title Goes Here</h5>
                                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
@@ -24,8 +24,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="content-image">
-
+                <div class="content-image flex justify-center items-center">
+                    <div class="image-svg w-3/4 h-3/4"></div>
                 </div>
             </div>
         </div>
@@ -41,13 +41,18 @@
     width: 50vw;
     height: 100vh;
 }
-.blue{
+.icon-right{
     background-image: url('../pictures/Icon.svg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
-.red{
+.icon-left{
     background-image: url('../pictures/Icon.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.image-svg{
+    background-image: url('../pictures/Paper-map-rafiki.svg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
