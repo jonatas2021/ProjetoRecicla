@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\User;
+use App\Models\Point;
 
 class PointPolicy
 {
@@ -11,6 +12,14 @@ class PointPolicy
      */
     public function __construct()
     {
-        //
+        
+    }
+    public function delPoint(User $user, Point $point)
+    {
+        if($user->company->id === $point->company_id || $user->adm)
+        {
+            return true;
+        }
+        
     }
 }

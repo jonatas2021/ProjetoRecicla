@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Gate;
-
 class PointController extends Controller
 {
     /**
@@ -136,7 +135,11 @@ class PointController extends Controller
     {
 
 
-        $this->authorize('isCompany', User::class);     
+
+        $this->authorize('delPoint', $point);
+
+
+        
         $point->delete(); 
 
     }

@@ -7,6 +7,8 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use Illuminate\Support\Facades\Gate;
 use App\Models\Company;
 use App\Models\Point;
+use App\Policies\PointPolicy;
+use App\Policies\UserPolicy;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -16,30 +18,13 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        //
+        User::class => UserPolicy::class,
+        Point::class => PointPolicy::class,
     ];
-
     /**
      * Register any authentication / authorization services.
      */
     public function boot(): void
     {
-        Gate::define('delPoint', function($user,Point $point){
-            if($user->adm){
-
-                return true;
-            }
-            return $user->company -> id === $point -> company_id;
-        });
-
-        Gate::define('delCompany', function($user, Company $company){
-    
-            if($user->adm){
-
-                return true;
-            }
-            return $user->id === $company->user_id;
-
-        });
     }
 }
