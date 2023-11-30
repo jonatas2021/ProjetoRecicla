@@ -3,6 +3,7 @@ import { Head, Link } from '@inertiajs/vue3';
 import Drawn_box1 from "../Components/svg-1.vue"
 import Drawn_box2 from "../Components/svg-2.vue"
 import Drawn_box3 from "../Components/svg-3.vue"
+import Drawn_box4 from "../Components/svg-4.vue"
 // import Style from "../../css/style.css"
 
 defineProps({
@@ -54,6 +55,7 @@ defineProps({
         <Drawn_box1></Drawn_box1>
         <Drawn_box2></Drawn_box2>
         <Drawn_box3></Drawn_box3>
+        <Drawn_box4></Drawn_box4>
     </div>
     
 </template>
