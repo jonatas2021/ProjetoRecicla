@@ -136,11 +136,8 @@ class PointController extends Controller
     {
 
 
-        if (Gate::denies('delPoint', $point)) {
-            
-           abort(403); 
-        }
-       $point->delete(); 
+        $this->authorize('isCompany', User::class);     
+        $point->delete(); 
 
     }
 

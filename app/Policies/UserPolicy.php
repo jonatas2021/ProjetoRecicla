@@ -14,14 +14,16 @@ class UserPolicy
     {
         //
     }
-    /**
-     * undocumented function
-     *
-     * @return void
-     */
+
     public function isAdm(User $user)
     {
         return Auth::user()->adm != null;
     }
+
+    public function isCompany(User $user)
+    {
+        return Auth::user()->company != null;
+    }
+    
     
 }

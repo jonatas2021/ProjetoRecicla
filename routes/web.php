@@ -49,7 +49,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/company', CompanyController::class);
     Route::resource('/point', PointController::class);
-    Route::resource('/adm', AdmController::class);
+    Route::resource('/adm', AdmController::class)->middleware('can:isAdm, App\Models\User');
 });
 
 
