@@ -14,6 +14,7 @@ export default {
         extend: {
             backgroundColor: {
                 'amber':'#ffc727',
+                'newBlue':'#111B47',
             },
             textColor: {
                 'amber':'#ffc727',
@@ -24,6 +25,10 @@ export default {
             },
             borderColor: {
                 'amber':'#ffc727',
+                'newBlue':'#111B47',
+            },
+            width: {
+                '29':'35.77%',
             },
         },
     },
