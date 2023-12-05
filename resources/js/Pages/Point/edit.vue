@@ -40,7 +40,14 @@
         )
 
     }
+    const aprovar = (id)=> {
+        createForm.put(
 
+
+            route('point.aprovar', id)
+        )
+
+    }
 
 </script>
 <template>
@@ -73,7 +80,7 @@
                     <hr>
                     <div v-if="Adm != null">
 
-                        <a href="#" @click.provent="update(Points.id)">Aprovar</a>
+                        <a href="#" @click.provent="aprovar(Points.id)">Aprovar</a>
 
                     </div>
                     <div class="p-6 text-gray-900 dark:text-gray-100">

@@ -38,7 +38,8 @@ class PointController extends Controller
 
 
 
-
+        $user = Auth::user(); 
+        $this->authorize('isCompany', $user);
 
         $validated = $request->validate([
             'name' => ['required','string','max:100','min:3'],
@@ -143,6 +144,7 @@ class PointController extends Controller
         $point->delete(); 
 
     }
-
+    
+    
 
 }
