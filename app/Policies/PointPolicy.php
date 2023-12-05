@@ -21,5 +21,28 @@ class PointPolicy
             return true;
         }
         
+        
+    }
+    /**
+     * undocumented function
+     *
+     * @return void
+     */
+    public function updatePoint(User $user, Point $point)
+    {
+        
+        if($user->company->id === $point->company_id || $user->adm)
+        {
+            return true;
+        }
+    }
+    
+    public function editPoint(User $user, Point $point)
+    {
+        
+        if($user->company->id === $point->company_id || $user->adm)
+        {
+            return true;
+        }
     }
 }

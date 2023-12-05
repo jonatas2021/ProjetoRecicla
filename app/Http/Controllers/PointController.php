@@ -77,12 +77,17 @@ class PointController extends Controller
     public function edit(Point $point)
     {
         $adm = Auth::user()->adm;
-        return Inertia::render('Point/edit', [
+        if(Auth::user()->can('editPoint', $point))
+        {
 
-            'Points' => $point,
-            'Adm' =>$adm
+            return Inertia::render('Point/edit', [
 
-        ]);
+                'Points' => $point,
+                'Adm' =>$adm
+
+            ]);
+        }
+        abort(403);
     }
 
     /**
@@ -90,42 +95,32 @@ class PointController extends Controller
      */
     public function update(Request $request, Point $point)
     {
+        $user = Auth::user();
 
-        if(Auth::user()->adm != null){
+        if ($request->user()->can('updatePoint',$point)){
+            if($request->user()->can('isAdm', $user)){
 
-            $validated = $request->validate([
-                'name' => ['required','string','max:100','min:3'],
-                'complement' => ['required', 'string', 'max:25', 'min:10'],
-                'latitude' => ['required', 'string', 'max:25', 'min:10'],
-                'longitude' => ['required', 'string', 'max:25', 'min:10'],
-            ]);
-
-            $point->update([
+                $point->update([
 
 
-                'name' => $request->name,
-                'complement'=> $request->complement,
-                'longitude'=> $request->longitude,
-                'latitude'=> $request->latitude,
-                'status'=>"1"
+                    'name' => $request->name,
+                    'complement'=> $request->complement,
+                    'longitude'=> $request->longitude,
+                    'latitude'=> $request->latitude,
+                    'status'=>"1"
 
 
 
-            ]);
+                ]);
 
 
+            }else{
 
-            return Redirect::route('adm.index');
-
-        }else {
-
-            $point->update($request->all());
-
-
+                $point->update($request->all());
+            }
+        
+        
         }
-
-
-        return Redirect::route('point.index');
 
     }
 
