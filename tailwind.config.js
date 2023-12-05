@@ -12,8 +12,23 @@ export default {
 
     theme: {
         extend: {
+            backgroundColor: {
+                'amber':'#ffc727',
+                'newBlue':'#111B47',
+            },
+            textColor: {
+                'amber':'#ffc727',
+            },
+            
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['poppins', ...defaultTheme.fontFamily.sans],
+            },
+            borderColor: {
+                'amber':'#ffc727',
+                'newBlue':'#111B47',
+            },
+            width: {
+                '29':'35.77%',
             },
         },
     },
