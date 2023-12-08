@@ -29,8 +29,14 @@ defineProps({
 <template>
     <Head title="Welcome" />
     <div class="nav">
-        <div v-if="canLogin" class="sm:position:relative sm:top-0 sm:right-0 p-6 text-right">
-                        <Link
+        <div v-if="canLogin" class="flex w-full">
+                        <div class="flex items-center justify-start font-semibold gap-6 ml-28">
+                            <a href="" class="dark:hover:text-gray-600 transition duration-1000 rounded-lg p-2 hover:bg-amber focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
+                            <a href="" class="dark:hover:text-gray-600 transition duration-1000 rounded-lg p-2 hover:bg-amber focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">About</a>
+                            <a href="" class="dark:hover:text-gray-600 transition duration-1000 rounded-lg p-2 hover:bg-amber focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Contact</a> 
+                        </div>
+                        <div class="flex justify-end w-full mr-14">
+                            <Link
                             v-if="$page.props.auth.user"
                             :href="route('dashboard')"
                             class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
@@ -47,10 +53,12 @@ defineProps({
                             <Link
                                 v-if="canRegister"
                                 :href="route('register')"
-                                class="ml-4 font-semibold text-black-600 hover:text-black-900 dark:text-black-400 dark:hover:text-gray-500 transition duration-1000 rounded-lg p-2 hover:bg-amber focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                class="ml-4 font-semibold text-black-600 hover:text-black-900 dark:text-black-400 dark:hover:text-gray-600 transition duration-1000 rounded-lg p-2 hover:bg-amber focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                 >Register</Link
                             >
                         </template>
+                        </div>
+                        
         </div>
     </div>
     <div class="main">
