@@ -6,8 +6,7 @@ use App\Models\Point;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Str;
 class PointController extends Controller
 {
     /**
@@ -37,28 +36,27 @@ class PointController extends Controller
     {
 
 
-
         $user = Auth::user(); 
         $this->authorize('isCompany', $user);
-
         $validated = $request->validate([
             'name' => ['required','string','max:100','min:3'],
-            'complement' => ['required', 'string', 'max:14', 'min:14'],
-            'latitude' => ['required', 'string', 'max:25', 'min:10'],
-            'longitude' => ['required', 'string', 'max:25', 'min:10'],
+            'complement' => ['required', 'string', 'max:50  ', 'min:10'],
+            'link' => ['required', 'string', 'min:50']
         ]);
-
+        
+        $cord = Str::between($request->link, '@', ',');
+        $latitude = Str::beforeLast($cord, ',');
+        $longitude = Str::afterLast($cord, ',');
         Point::create([
 
-
+            
             'name' => $request -> name,
             'complement' => $request -> complement,
-            'latitude' => $request -> latitude,
-            'longitude' => $request -> longitude,
+            'latitude' => $latitude,
+            'longitude' => $longitude,
             'company_id' => Auth::user()->company->id,
             'status' => '0'
             //'status' => $request -> status
-
 
         ]);
     }
@@ -130,11 +128,7 @@ class PointController extends Controller
     public function destroy(Point $point)
     {
 
-
-
         $this->authorize('delPoint', $point);
-
-
         
         $point->delete(); 
 

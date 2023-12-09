@@ -18,8 +18,7 @@
 
         name: '',
         complement: '',
-        longitude: '',
-        latitude: '',
+        link: '',
         status: '',
 
     })
@@ -108,10 +107,9 @@
                             <input type="text" v-model="createForm.name">
                             <label>complement</label>
                             <input type="text" v-model="createForm.complement">
-                            <label>latitude</label>
-                            <input type="text" v-model="createForm.latitude">
-                            <label>longitude</label>
-                            <input type="text" v-model="createForm.longitude">
+                            <label>link</label>
+                            <input type="text" v-model="createForm.link">
+                            
                             <!-- <label>status</label>
                             <input type="text" v-model="createForm.status"> -->
 
