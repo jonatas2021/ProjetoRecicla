@@ -11,6 +11,7 @@ use Inertia\Inertia;
 use App\Models\Point;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,9 +57,16 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/map', function (){
 
-        return Inertia::render('Map/index',['Points' => Point::all()]);
+        return Inertia::render('Map/Mapa',['Points' => Point::all()]);
     })->name('map');
-
+    Route::get('/pontos.geojson', function () {
+        $path = public_path('pontos.geojson'); 
+        $content = file_get_contents($path);
+    
+        return new Response($content, 200, [
+            'Content-Type' => 'application/json',
+        ]);
+    });
     
 
 

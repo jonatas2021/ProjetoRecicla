@@ -12,6 +12,7 @@
                     <div class="box-content w-2/4 break-all">
                         <h3 class="text-4xl mb-8 font-medium">Equipe</h3>
                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+                        <a href="" class="border border-solid border-newBlue rounded text-center text-white bg-newBlue h-9 flex items-center justify-center w-56 gap-6 mt-12">Conheça</a>
                     </div>
                 </div>
 
