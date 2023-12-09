@@ -1,0 +1,166 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          -34.909611,
+          -7.841071
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          -34.938506,
+          -7.82803
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Coleta": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -34.909522,
+          -7.842381
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          -34.91141,
+          -7.83879
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "teste": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -34.90974,
+          -7.843461
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Coleta": "",
+        "accuracy": "",
+        "mapbox_id": "",
+        "place_name": "",
+        "wikidata": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -34.911513,
+          -7.841124
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mapbox_id": "dXJuOm1ieHBsYzpBUXlvSUE",
+        "wikidata": "Q1787619",
+        "place_name": "Igarassu, Pernambuco, Brazil"
+      },
+      "geometry": {
+        "coordinates": [
+          -34.906113,
+          -7.835442
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          -34.910166,
+          -7.844218
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          -34.908906,
+          -7.839151
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          -34.911148,
+          -7.842144
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "accuracy": "street",
+        "mapbox_id": "dXJuOm1ieGFkcjo1ZWZmYjhhMC0yMzYyLTQyODYtYjI4OC0xMmJjZTM1OTAyNmE",
+        "place_name": "Avenida Ibura, Ibura, Recife - Pernambuco, 51220, Brazil"
+      },
+      "geometry": {
+        "coordinates": [
+          -34.929266,
+          -8.116569
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          -34.9321,
+          -8.1224
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          -34.910218,
+          -7.839604
+        ],
+        "type": "Point"
+      }
+    }
+  ],
+  "type": "FeatureCollection"
+}
