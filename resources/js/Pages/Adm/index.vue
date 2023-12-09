@@ -9,7 +9,7 @@
 
             type:Object,
             required: true
-        }
+        },
 
     })
 
@@ -21,9 +21,9 @@
         latitude: '',
 
     })
-
     const remove = (Point) => {
         const id = confirm('Vai apagar T_T');
+
 
         if(id != false){
 
@@ -84,9 +84,8 @@
                         {{ Point.longitude }} <br>
                         {{ Point.status  }} <br>
                        
-
-                        <a href="#" @click.provent="remove(Point.id)" style="margin: 5px;border: 1px solid black;" >DEL</a>
                         
+                        <a href="#" @click.provent="remove(Point.id)" style="margin: 5px;border: 1px solid black;">DEL</a>
                         <a href="#" @click.provent="edit(Point.id)" style="margin: 5px;border: 1px solid black;">EDIT</a>
 
 

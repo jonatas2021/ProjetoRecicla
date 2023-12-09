@@ -8,6 +8,9 @@ use App\Http\Controllers\AdmController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Models\Point;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,8 +33,13 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    return Inertia::render('Dashboard', ['can'=>[
+        'isAdm' => Auth::user()->can('isAdm', User::class)
+        ]
+    ]);
+
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -41,8 +49,22 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/company', CompanyController::class);
     Route::resource('/point', PointController::class);
-    Route::resource('/adm', AdmController::class);
-
+    Route::resource('/adm', AdmController::class)->middleware('can:isAdm, App\Models\User');
 });
+
+
+
+    Route::get('/map', function (){
+
+        return Inertia::render('Map/index',['Points' => Point::all()]);
+    })->name('map');
+
+    
+
+
+
+
+
+
 
 require __DIR__.'/auth.php';

@@ -7,8 +7,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Session;
-
+use Illuminate\Support\Facades\Gate;
 class PointController extends Controller
 {
     /**
@@ -36,6 +35,12 @@ class PointController extends Controller
      */
     public function store(Request $request)
     {
+
+
+
+        $user = Auth::user(); 
+        $this->authorize('isCompany', $user);
+
         $validated = $request->validate([
             'name' => ['required','string','max:100','min:3'],
             'complement' => ['required', 'string', 'max:14', 'min:14'],
@@ -108,7 +113,6 @@ class PointController extends Controller
 
             ]);
 
-            Session::flash('message', 'This is a message!');
 
 
             return Redirect::route('adm.index');
@@ -130,8 +134,17 @@ class PointController extends Controller
      */
     public function destroy(Point $point)
     {
-        $point -> delete();
-    }
 
+
+
+        $this->authorize('delPoint', $point);
+
+
+        
+        $point->delete(); 
+
+    }
+    
+    
 
 }
