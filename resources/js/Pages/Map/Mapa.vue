@@ -33,7 +33,7 @@ export default {
     map.on('load', () => {
       map.addSource('earthquakes', {
         type: 'geojson',
-        data: 'http://localhost:8000/pontos.geojson'
+        data: 'http://127.0.0.1:8000/pontos.geojson'
       });
       
       map.addLayer({
@@ -43,9 +43,9 @@ export default {
         'paint': {
           'circle-radius': 4,
           'circle-stroke-width': 2,
-          'circle-color': 'red',
+          'circle-color': 'green',
           'circle-stroke-color': 'white'
-        }
+        },
       });
 });
   }
