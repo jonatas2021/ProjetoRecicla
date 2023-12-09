@@ -29,6 +29,7 @@ export default {
             },
             width: {
                 '29':'35.77%',
+                'standard':'90%'
             },
         },
     },
