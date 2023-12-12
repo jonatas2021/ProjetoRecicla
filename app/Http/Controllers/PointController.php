@@ -85,17 +85,17 @@ class PointController extends Controller
     public function edit(Point $point)
     {
         $adm = Auth::user()->adm;
-        if(Auth::user()->can('editPoint', $point))
+        if(!Auth::user()->can('editPoint', $point))
         {
 
             abort(403);
         }
-            return Inertia::render('Point/edit', [
+        return Inertia::render('Point/edit', [
 
-                'Points' => $point,
-                'Adm' =>$adm
+            'Points' => $point,
+            'Adm' =>$adm
 
-            ]);
+        ]);
     }
 
     /**
@@ -125,7 +125,7 @@ class PointController extends Controller
                     $features = [];
                 
                     foreach ($points as $point) {
-                        if ($points->status === 0) {
+                        if ($point->status == 1) {
                             
                             $feature = [
                                 "type" => "Feature",
@@ -154,10 +154,13 @@ class PointController extends Controller
                 
                 $caminhoArquivo = public_path('pontos.geojson');
                 File::put($caminhoArquivo, $jsonDados);
+                return to_route('company.index');
         
             }else{
 
                 $point->update($request->all());
+                return to_route('company.index');
+
             }
         
             abort(403); 

@@ -20,8 +20,8 @@ class PointFactory extends Factory
         return [
             'name'=> fake()->name(),
             'complement'=> fake()->text(20),
-            'latitude'=> fake()->numberBetween(10000,200000),
-            'longitude'=> fake()->numberBetween(10000,200000),
+            'latitude'=> fake()->latitude($min=-90, $max = 90),
+            'longitude'=> fake()->longitude($min=-90, $max = 90),
             'company_id'=> Company::all()->random()->id,
             'status'=> fake()->numberBetween(0,0),
         ];
