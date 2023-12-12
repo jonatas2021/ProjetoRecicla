@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Gate;
 use App\Models\Company;
 use App\Models\Point;
 use App\Policies\PointPolicy;
+use App\Policies\CompanyPolicy;
 use App\Policies\UserPolicy;
 
 class AuthServiceProvider extends ServiceProvider
@@ -19,6 +20,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         User::class => UserPolicy::class,
+        Company::class => CompanyPolicy::class,
         Point::class => PointPolicy::class,
     ];
     /**
