@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 class PointController extends Controller
 {
     /**
@@ -35,8 +36,7 @@ class PointController extends Controller
     public function store(Request $request)
     {
 
-
-        $user = Auth::user(); 
+       if(Auth::user()->can('isCompany', Auth::user())) 
         $this->authorize('isCompany', $user);
         $validated = $request->validate([
             'name' => ['required','string','max:100','min:3'],
@@ -69,7 +69,7 @@ class PointController extends Controller
         //
     }
 
-    /**
+    /**V
      * Show the form for editing the specified resource.
      */
     public function edit(Point $point)
@@ -78,14 +78,14 @@ class PointController extends Controller
         if(Auth::user()->can('editPoint', $point))
         {
 
+            abort(403);
+        }
             return Inertia::render('Point/edit', [
 
                 'Points' => $point,
                 'Adm' =>$adm
 
             ]);
-        }
-        abort(403);
     }
 
     /**
@@ -117,7 +117,7 @@ class PointController extends Controller
                 $point->update($request->all());
             }
         
-        
+            abort(403); 
         }
 
     }
@@ -128,8 +128,14 @@ class PointController extends Controller
     public function destroy(Point $point)
     {
 
-        $this->authorize('delPoint', $point);
-        
+        if(!Auth::user()->can('delPoint',$point))
+        {
+
+            abort(403);
+
+
+        } 
+
         $point->delete(); 
 
     }
