@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Point;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
+
 class PointController extends Controller
 {
     /**
@@ -22,6 +23,8 @@ class PointController extends Controller
              
         
         }
+        
+        
         return Inertia::render('Point/index', [
 
             'Points' => Auth::user()->company->point
@@ -44,7 +47,7 @@ class PointController extends Controller
     {
 
        if(Auth::user()->can('isCompany', Auth::user())) 
-        $this->authorize('isCompany', $user);
+        $this->authorize('isCompany', Auth::user());
         $validated = $request->validate([
             'name' => ['required','string','max:100','min:3'],
             'complement' => ['required', 'string', 'max:50  ', 'min:10'],
@@ -118,7 +121,40 @@ class PointController extends Controller
 
                 ]);
 
-
+                function criarEstruturaGeoJson($points) {
+                    $features = [];
+                
+                    foreach ($points as $point) {
+                        if ($points->status === 0) {
+                            
+                            $feature = [
+                                "type" => "Feature",
+                                "properties" => (object) [],
+                                "geometry" => [
+                                    "coordinates" => [$point->longitude, $point->latitude],
+                                    "type" => "Point"
+                                ]
+                            ];
+                    
+                            $features[] = $feature;
+                        }
+                    }
+                
+                    $estrutura = [
+                        "features" => $features,
+                        "type" => "FeatureCollection"
+                    ];
+                
+                    return json_encode($estrutura, JSON_PRETTY_PRINT);
+                }
+                
+                $points = Point::all();
+                
+                $jsonDados = criarEstruturaGeoJson($points);
+                
+                $caminhoArquivo = public_path('pontos.geojson');
+                File::put($caminhoArquivo, $jsonDados);
+        
             }else{
 
                 $point->update($request->all());
