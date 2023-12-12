@@ -15,6 +15,13 @@ class PointController extends Controller
      */
     public function index()
     {
+        if(!Auth::user()->can('isCompany', Auth::user()))
+        {
+            return to_route('company.index') -> with(['msg' => 'teste']);
+            //return redirect()->route('company.index');
+             
+        
+        }
         return Inertia::render('Point/index', [
 
             'Points' => Auth::user()->company->point
