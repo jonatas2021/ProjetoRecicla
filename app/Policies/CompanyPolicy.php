@@ -22,4 +22,19 @@ class CompanyPolicy
         
         
     }
+    /**
+     * undocumented function
+     *
+     * @return void
+     */
+    public function editCompany(User $user, Company $company)
+    {
+
+        if($user->id === $company->user_id || $user->adm)
+        {
+            return true;
+        }
+
+    }
+    
 }
