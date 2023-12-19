@@ -17,6 +17,7 @@ São os membros do projeto:
 - [Lívia Sabino](https://github.com/liviasab)
 - [Jonatas Cândido](https://github.com/jonatas2021)
 - [Simeia Olimpea](https://github.com/SiOlimpia)
+- [Cidyclay_Junyor](https://github.com/Cidyclay)
   
 O projeto foi desenvolvido através da disciplina de Projeto 1 no curso de TSI (Tecnólogo em Sistemas para Internet) no IFPE Campus Igarassu. A demanda para tal projeto partiu do [Professor Alexandre Magno Alves de Oliveira](mailto:alexandre.oliveira@igarassu.ifpe.edu.br) que atua na área de logística, ele busca formas de melhorar a sustentabilidade e a educação ambiental na cidade de Igarassu.
 </div>
