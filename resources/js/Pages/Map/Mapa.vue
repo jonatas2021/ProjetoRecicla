@@ -12,11 +12,11 @@
   export default {
     name: 'Mapa',
     mounted() {
-      mapboxgl.accessToken = 'pk.eyJ1IjoiY2lkeWNsYXkiLCJhIjoiY2xvYXE4ZXQyMGc4MTJrcGFtbW9vYndjeCJ9.xLf-VgKrIwHJBZrr0ps9kg';
+      mapboxgl.accessToken = 'pk.eyJ1IjoiY2Fpb3NvdXNhMzIiLCJhIjoiY2xyaTg5cXNtMDQwbjJpbnU5bHh1N2dwciJ9.rJVtMbFy7zvEjojYBfr-Sw';
 
       const map = new mapboxgl.Map({
         container: this.$refs.map,
-        style: 'mapbox://styles/cidyclay/clpkgnfel00gj01qmdpntaurd',
+        style: 'mapbox://styles/caiosousa32/clri8t4lk00dq01nu9juvduk7',
         center: [-34.902908, -7.838847],
         zoom: 13.7
       });
@@ -45,23 +45,63 @@
       });
 
       map.on('load', () => {
-        map.addSource('earthquakes', {
-          type: 'geojson',
-          data: 'http://127.0.0.1:8000/pontos.geojson'
-        });
+    map.addSource('earthquakes', {
+        type: 'geojson',
+        data: 'http://127.0.0.1:8000/pontos.geojson'
+    });
 
-        map.addLayer({
-          'id': 'earthquakes-layer',
-          'type': 'circle',
-          'source': 'earthquakes',
-          'paint': {
-            'circle-radius': 4,
+    map.addLayer({
+        'id': 'earthquakes-layer',
+        'type': 'circle',
+        'source': 'earthquakes',
+        'paint': {
+            'circle-radius': 8,
             'circle-stroke-width': 2,
-            'circle-color': 'green',
+            'circle-color': 'red',
             'circle-stroke-color': 'white'
-          },
-        });
-      });
+        }
+    });
+
+    // Adiciona uma camada de texto (rótulo) para exibir informações
+    map.addLayer({
+        'id': 'earthquakes-labels',
+        'type': 'symbol',
+        'source': 'earthquakes',
+        'layout': {
+            'text-field': ['get', 'nome_do_campo_com_texto'], // Substitua 'nome_do_campo_com_texto' pelo nome do campo no seu GeoJSON com os textos que você deseja exibir.
+            'text-size': 12,
+            'text-allow-overlap': true
+        },
+        'paint': {
+            'text-color': 'white'
+        }
+    });
+
+    // Adiciona um pop-up ao passar o cursor sobre os pontos
+    map.on('mouseenter', 'earthquakes-layer', (e) => {
+        map.getCanvas().style.cursor = 'pointer';
+
+        const coordinates = e.features[0].geometry.coordinates.slice();
+        const popupContent = `
+            <h3>Ponto de Coleta</h3>
+            <p>Latitude: ${coordinates[1]}</p>
+            <p>Longitude: ${coordinates[0]}</p>
+        `;
+
+        // Cria um popup no ponto onde o cursor está
+        new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(popupContent)
+            .addTo(map);
+    });
+
+    // Reseta o cursor e fecha o pop-up ao sair do ponto
+    map.on('mouseleave', 'earthquakes-layer', () => {
+        map.getCanvas().style.cursor = '';
+        map.closePopup();
+    });
+});
+
     }
   };
   </script>
