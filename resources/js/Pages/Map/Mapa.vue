@@ -45,11 +45,13 @@
       });
 
       map.on('load', () => {
+    // Adicione a fonte de dados para os pontos de terremoto
     map.addSource('earthquakes', {
         type: 'geojson',
         data: 'http://127.0.0.1:8000/pontos.geojson'
     });
 
+    // Adicione a camada para os pontos de terremoto
     map.addLayer({
         'id': 'earthquakes-layer',
         'type': 'circle',
@@ -62,13 +64,13 @@
         }
     });
 
-    // Adiciona uma camada de texto (rótulo) para exibir informações
+    // Adicione a camada de texto (rótulo) para os estabelecimentos
     map.addLayer({
-        'id': 'earthquakes-labels',
+        'id': 'estabelecimentos-labels',
         'type': 'symbol',
-        'source': 'earthquakes',
+        'source': 'earthquakes', // Use a mesma fonte de dados dos pontos de terremoto
         'layout': {
-            'text-field': ['get', 'nome_do_campo_com_texto'], // Substitua 'nome_do_campo_com_texto' pelo nome do campo no seu GeoJSON com os textos que você deseja exibir.
+            'text-field': ['get', 'nome_do_campo_com_texto'], // Substitua 'nome_do_campo_com_texto' pelo nome do campo no seu GeoJSON com os nomes dos estabelecimentos.
             'text-size': 12,
             'text-allow-overlap': true
         },
@@ -77,21 +79,21 @@
         }
     });
 
-    // Adiciona um pop-up ao passar o cursor sobre os pontos
+    // Adicione um pop-up ao passar o cursor sobre os pontos de terremoto
     map.on('mouseenter', 'earthquakes-layer', (e) => {
         map.getCanvas().style.cursor = 'pointer';
 
-        const coordinates = e.features[0].geometry.coordinates.slice();
-        const popupContent = `
-            <h3>Ponto de Coleta</h3>
-            <p>Latitude: ${coordinates[1]}</p>
-            <p>Longitude: ${coordinates[0]}</p>
-        `;
+        const earthquakeCoordinates = e.features[0].geometry.coordinates.slice();
+        const earthquakeProperties = e.features[0].properties;
 
-        // Cria um popup no ponto onde o cursor está
+        // Cria um popup no ponto onde o cursor está, exibindo informações do ponto e do estabelecimento
         new mapboxgl.Popup()
-            .setLngLat(coordinates)
-            .setHTML(popupContent)
+            .setLngLat(earthquakeCoordinates)
+            .setHTML(`
+                <h3>Informações do Ponto</h3>
+                <p>Nome do Ponto: ${earthquakeProperties.nome_do_campo_com_texto}</p>
+                <p>Outras Informações: ${earthquakeProperties.outras_informacoes}</p>
+            `)
             .addTo(map);
     });
 
