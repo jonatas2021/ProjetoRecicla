@@ -54,24 +54,18 @@
     }
 
     const remove = (company) => {
-        const id = confirm('Vai apagar T_T');
-
-        if(id != false){
 
             useForm({}).delete(
     
                 route('company.destroy', company),
             )
 
-            // setTimeout(()=>{
-            //     modalOpen();
-            //     validation.value = false
-            // },2000)
-            // validation.value = true
-
-        }
+            setTimeout(()=>{
+                modalOpen();
+                validation.value = false
+            },1000)
+            validation.value = true
     
-
     }
 
     const edit = (company) =>{
@@ -89,15 +83,6 @@
     const modal = ref(false)
     const validation = ref(false)
     const modalOpen = () => modal.value = !modal.value
-    const test = () => {
-        setTimeout(()=>{
-                modalOpen();
-                validation.value = false
-            },1000)
-            validation.value = true
-    }
-
-
 
 </script>
 
@@ -121,7 +106,6 @@
                         </div>
                     </div>
                     <div class="flex justify-center items-center gap-4">
-                        <a href="" @click.prevent="test" class="bg-red-600 p-3 rounded-lg text-center text-white duration-1000 hover:bg-red-400 hover:p-4">teste</a>
                         <a href="#" @click.prevent="remove(company)" style="border: 1px solid #60a5fa;" class="bg-blue-400 p-3 w-2/6 rounded-lg text-center text-white duration-1000 hover:bg-blue-300 hover:p-4">Apagar</a>
                         <a href="#" @click.prevent="modalOpen" style="border: 1px solid rgb(75, 85, 99);" class="bg-gray-600 p-3 rounded-lg text-center text-white duration-1000 hover:bg-gray-500 hover:p-4">Cancelar</a>
                     </div>
