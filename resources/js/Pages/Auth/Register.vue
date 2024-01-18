@@ -24,7 +24,7 @@ const submit = () => {
     <Head title="Register" />
     <div class="nav w-screen absolute">
         <div class="flex items-center justify-start font-semibold gap-6 ml-28">
-            <a href=""
+            <a href="/"
                 class="dark:hover:text-gray-600 transition duration-1000 rounded-lg p-2 hover:bg-amber focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
             <a href=""
                 class="dark:hover:text-gray-600 transition duration-1000 rounded-lg p-2 hover:bg-amber focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">About</a>
@@ -84,10 +84,6 @@ const submit = () => {
                                 </div>
 
                                 <div class="block mt-4 grid grid-cols-2 w-full">
-                                    <label class="flex items-center">
-                                        <Checkbox name="remember" v-model:checked="form.remember" />
-                                        <span class="ml-2 text-sm text-gray-600">Remember me</span>
-                                    </label>
                                     <Link v-if="canResetPassword" :href="route('password.request')"
                                         class="underline text-sm text-gray-600 hover:text-gray-900 flex justify-end rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                     Esqueceu sua senha?
