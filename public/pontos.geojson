@@ -10,6 +10,28 @@
                 ],
                 "type": "Point"
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "coordinates": [
+                    "-34.9043083",
+                    "-7.879332"
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "coordinates": [
+                    "-34.9430989",
+                    "-7.7324512"
+                ],
+                "type": "Point"
+            }
         }
     ],
     "type": "FeatureCollection"

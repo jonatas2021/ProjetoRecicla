@@ -8,6 +8,7 @@
   <script>
   import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
   import 'mapbox-gl/dist/mapbox-gl.css';
+  import axios from 'axios';
 
   export default {
     name: 'Mapa',
@@ -79,24 +80,25 @@
         }
     });
 
-    // Adicione um pop-up ao passar o cursor sobre os pontos de terremoto
-    map.on('mouseenter', 'earthquakes-layer', (e) => {
-        map.getCanvas().style.cursor = 'pointer';
+    map.on('mouseenter', 'earthquakes-layer', async (e) => {
+    map.getCanvas().style.cursor = 'pointer';
 
-        const earthquakeCoordinates = e.features[0].geometry.coordinates.slice();
-        const earthquakeProperties = e.features[0].properties;
+    const earthquakeCoordinates = e.features[0].geometry.coordinates.slice();
 
-        // Cria um popup no ponto onde o cursor está, exibindo informações do ponto e do estabelecimento
-        new mapboxgl.Popup()
-            .setLngLat(earthquakeCoordinates)
-            .setHTML(`
-                <h3>Informações do Ponto</h3>
-                <p>Nome do Ponto: ${earthquakeProperties.nome_do_campo_com_texto}</p>
-                <p>Outras Informações: ${earthquakeProperties.outras_informacoes}</p>
-            `)
-            .addTo(map);
-    });
+    // Use o serviço Nominatim para obter o nome do local a partir das coordenadas
+    const response = await axios.get(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${earthquakeCoordinates[1]}&lon=${earthquakeCoordinates[0]}`);
 
+    const locationName = response.data.display_name;
+
+    // Cria um popup no ponto onde o cursor está, exibindo informações do ponto e do estabelecimento
+    new mapboxgl.Popup()
+        .setLngLat(earthquakeCoordinates)
+        .setHTML(`
+            <h3>Ponto de coleta</h3>
+            <p>Local: ${locationName}</p>
+        `)
+        .addTo(map);
+});
     // Reseta o cursor e fecha o pop-up ao sair do ponto
     map.on('mouseleave', 'earthquakes-layer', () => {
         map.getCanvas().style.cursor = '';
@@ -117,9 +119,9 @@
   }
 
   svg.mapboxgl-ctrl-geocoder--icon.mapboxgl-ctrl-geocoder--icon-search {
-    width: 38px;
+    width: 30px;
     height: 30px;
-    margin: 6px;
+    margin: 1%;
     margin-left: 230px;
     position: absolute;
   }
