@@ -121,7 +121,7 @@
   svg.mapboxgl-ctrl-geocoder--icon.mapboxgl-ctrl-geocoder--icon-search {
     width: 30px;
     height: 30px;
-    margin: 1%;
+    margin: 6px;
     margin-left: 230px;
     position: absolute;
   }
@@ -134,12 +134,24 @@
 
   ul.suggestions {
     margin: 10px;
+    list-style: none;
+    padding: 0;
+    width: 95%;
+  }
+
+  ul.suggestions li{
+    padding: .5em 0;
+    border-bottom: 1px solid #000000;
+  }
+
+  ul.suggestions li:last-child {
+    border-bottom: 0;
   }
 
   svg.mapboxgl-ctrl-geocoder--icon.mapboxgl-ctrl-geocoder--icon-close{
     width: 22px;
     height: 22px;
-    margin-block: -293px;
+    margin-block: -402px;
     margin-left: 210px;
   }
   </style>
