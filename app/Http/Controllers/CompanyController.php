@@ -40,6 +40,8 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
 
+
+
         $validated = $request->validate([
             'name' => ['required','string','max:100','min:3'],
             'cnpj' => ['required', 'string', 'max:14', 'min:14'],
@@ -70,6 +72,11 @@ class CompanyController extends Controller
     public function edit(Company $company)
     {
 
+        if(!Auth::user()->can('editCompany', $company))
+        {
+            abort(403);
+        }
+
         return Inertia::render('Company/edit', [
 
 
@@ -88,6 +95,10 @@ class CompanyController extends Controller
     public function update(Request $request, Company $company)
     {
 
+        if(!Auth::user()->can('updateCompany', $company))
+        {
+            abort(403);
+        }
         $validated = $request->validate([
             'name' => ['required','string','max:100','min:3'],
             'cnpj' => ['required', 'string', 'max:14', 'min:14'],
@@ -104,9 +115,10 @@ class CompanyController extends Controller
     public function destroy(Company $company)
     {
 
-        if (Gate::denies('delCompany', $company)) {
             
-           abort(403); 
+        if(!Auth::user()->can('delCompany', $company))
+        {
+            abort(403);
         }
         $company -> delete();
 

@@ -45,4 +45,5 @@ class PointPolicy
             return true;
         }
     }
+    
 }

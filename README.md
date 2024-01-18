@@ -12,6 +12,7 @@
 ## ***Projeto desenvolvido para disciplina de Projeto 1 no IFPE Campus Igarassu***
 São os membros do projeto:
 - [Caio de Sousa](https://www.github.com/CaioSousa32)
+- [Cidyclay Junyor](https://github.com/Cidyclay)
 - [Denilson de Oliveira](https://www.github.com/Denils0n)
 - [Layrton Wassermann](http://www.github.com/Layrton07)
 - [Lívia Sabino](https://github.com/liviasab)

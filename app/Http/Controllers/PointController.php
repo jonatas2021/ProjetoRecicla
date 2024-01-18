@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Point;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+
 class PointController extends Controller
 {
     /**
@@ -14,6 +16,15 @@ class PointController extends Controller
      */
     public function index()
     {
+        if(!Auth::user()->can('isCompany', Auth::user()))
+        {
+            return to_route('company.index') -> with(['msg' => 'teste']);
+            //return redirect()->route('company.index');
+             
+        
+        }
+        
+        
         return Inertia::render('Point/index', [
 
             'Points' => Auth::user()->company->point
@@ -35,9 +46,8 @@ class PointController extends Controller
     public function store(Request $request)
     {
 
-
-        $user = Auth::user(); 
-        $this->authorize('isCompany', $user);
+       if(Auth::user()->can('isCompany', Auth::user())) 
+        $this->authorize('isCompany', Auth::user());
         $validated = $request->validate([
             'name' => ['required','string','max:100','min:3'],
             'complement' => ['required', 'string', 'max:50  ', 'min:10'],
@@ -69,23 +79,23 @@ class PointController extends Controller
         //
     }
 
-    /**
+    /**V
      * Show the form for editing the specified resource.
      */
     public function edit(Point $point)
     {
         $adm = Auth::user()->adm;
-        if(Auth::user()->can('editPoint', $point))
+        if(!Auth::user()->can('editPoint', $point))
         {
 
-            return Inertia::render('Point/edit', [
-
-                'Points' => $point,
-                'Adm' =>$adm
-
-            ]);
+            abort(403);
         }
-        abort(403);
+        return Inertia::render('Point/edit', [
+
+            'Points' => $point,
+            'Adm' =>$adm
+
+        ]);
     }
 
     /**
@@ -111,13 +121,49 @@ class PointController extends Controller
 
                 ]);
 
-
+                function criarEstruturaGeoJson($points) {
+                    $features = [];
+                
+                    foreach ($points as $point) {
+                        if ($point->status == 1) {
+                            
+                            $feature = [
+                                "type" => "Feature",
+                                "properties" => (object) [],
+                                "geometry" => [
+                                    "coordinates" => [$point->longitude, $point->latitude],
+                                    "type" => "Point"
+                                ]
+                            ];
+                    
+                            $features[] = $feature;
+                        }
+                    }
+                
+                    $estrutura = [
+                        "features" => $features,
+                        "type" => "FeatureCollection"
+                    ];
+                
+                    return json_encode($estrutura, JSON_PRETTY_PRINT);
+                }
+                
+                $points = Point::all();
+                
+                $jsonDados = criarEstruturaGeoJson($points);
+                
+                $caminhoArquivo = public_path('pontos.geojson');
+                File::put($caminhoArquivo, $jsonDados);
+                return to_route('company.index');
+        
             }else{
 
                 $point->update($request->all());
+                return to_route('company.index');
+
             }
         
-        
+            abort(403); 
         }
 
     }
@@ -128,8 +174,14 @@ class PointController extends Controller
     public function destroy(Point $point)
     {
 
-        $this->authorize('delPoint', $point);
-        
+        if(!Auth::user()->can('delPoint',$point))
+        {
+
+            abort(403);
+
+
+        } 
+
         $point->delete(); 
 
     }
