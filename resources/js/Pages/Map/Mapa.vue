@@ -115,6 +115,32 @@
     bottom: 0;
     width: 100%;
   }
+
+  svg.mapboxgl-ctrl-geocoder--icon.mapboxgl-ctrl-geocoder--icon-search {
+    width: 38px;
+    height: 30px;
+    margin: 6px;
+    margin-left: 230px;
+    position: absolute;
+  }
+
+  div.suggestions-wrapper {
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.744);
+    border: 50px;
+
+  }
+
+  ul.suggestions {
+    margin: 10px;
+  }
+
+  svg.mapboxgl-ctrl-geocoder--icon.mapboxgl-ctrl-geocoder--icon-close{
+    width: 22px;
+    height: 22px;
+    margin-block: -293px;
+    margin-left: 210px;
+  }
   </style>
 
   <!-- Inclua os estilos do Mapbox Geocoder diretamente no HTML -->
