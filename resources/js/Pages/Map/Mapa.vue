@@ -128,7 +128,6 @@
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.744);
     border: 50px;
-
   }
 
   ul.suggestions {
