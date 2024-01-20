@@ -44,9 +44,13 @@ class CompanyController extends Controller
 
         $validated = $request->validate([
             'name' => ['required','string','max:100','min:3'],
-            'cnpj' => ['required', 'string', 'max:14', 'min:14'],
+            'cnpj' => ['required', 'cnpj'],
         ]);
 
+    
+    
+    
+    
         Company::create([
 
 

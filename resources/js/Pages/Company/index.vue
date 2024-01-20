@@ -15,11 +15,11 @@
 
         },
 
-        msg:{
-            type:Object,
-            required: true
-        }
- 
+        errors: {
+            type: Object,
+            default: () => ({}),
+        },
+         
 
     })
 
@@ -121,9 +121,11 @@
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                 Empresa
             </h2>
-
         </template>
-
+        <div>
+            {{errors.name}}
+            {{errors.cnpj}}
+        </div>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-amber dark:bg-amber overflow-hidden shadow-sm sm:rounded-lg">
@@ -135,7 +137,7 @@
                                 {{ company.name }}
                                 {{ company.cnpj }}
                             </div>
-                            
+                            <div :msg="msg"></div>        
 
                             <div class="grid grid-cols-2 gap-4 items-center">
                                 <!-- testes -->
