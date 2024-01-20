@@ -12,7 +12,12 @@
             required: true
 
 
-        }
+        },
+
+        errors: {
+            type: Object,
+            default: () => ({}),
+        },
 
 
 
@@ -68,6 +73,10 @@
                         Editando
 
                         <div>
+                            <div>
+                                {{ errors.name }}
+                                {{ errors.cnpj }}
+                            </div>
 
                             <form @submit.prevent="update(company.id)">
                                 <div class="grid grid-cols-2 gap-2">

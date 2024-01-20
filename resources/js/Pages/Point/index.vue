@@ -10,6 +10,11 @@
 
             type:Object,
             required: true
+        },
+
+        errors: {
+            type: Object,
+            default: () => ({}),
         }
 
     })
@@ -40,7 +45,7 @@
         if(id != false){
 
             useForm({}).delete(
-    
+
                 route('point.destroy', Point),
             )
 
@@ -98,6 +103,11 @@
                     </div>
 
                     <hr>
+                    <div>
+                        {{ errors.name }}
+                        {{ errors.complement }}
+                        {{ errors.link }}
+                    </div>
 
                     <div class="p-6 text-gray-900 dark:text-gray-100">
 
@@ -109,7 +119,7 @@
                             <input type="text" v-model="createForm.complement">
                             <label>link</label>
                             <input type="text" v-model="createForm.link">
-                            
+
                             <!-- <label>status</label>
                             <input type="text" v-model="createForm.status"> -->
 
