@@ -15,11 +15,11 @@
 
         },
 
-        msg:{
-            type:Object,
-            required: true
-        }
- 
+        errors: {
+            type: Object,
+            default: () => ({}),
+        },
+
 
     })
 
@@ -56,7 +56,7 @@
     const remove = (company) => {
 
             useForm({}).delete(
-    
+
                 route('company.destroy', company),
             )
 
@@ -65,7 +65,7 @@
                 validation.value = false
             },1000)
             validation.value = true
-    
+
     }
 
     const edit = (company) =>{
@@ -110,7 +110,7 @@
                         <a href="#" @click.prevent="modalOpen" style="border: 1px solid rgb(75, 85, 99);" class="bg-gray-600 p-3 rounded-lg text-center text-white duration-1000 hover:bg-gray-500 hover:p-4">Cancelar</a>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -121,8 +121,12 @@
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                 Empresa
             </h2>
-
         </template>
+
+        <div>
+            {{errors.name}}
+            {{errors.cnpj}}
+        </div>
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -135,7 +139,7 @@
                                 {{ company.name }}
                                 {{ company.cnpj }}
                             </div>
-                            
+                            <div :msg="msg"></div>
 
                             <div class="grid grid-cols-2 gap-4 items-center">
                                 <!-- testes -->

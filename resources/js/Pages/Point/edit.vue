@@ -10,13 +10,17 @@
             type:Object,
             required: true
         },
-        
+
         Adm: {
 
             type:Object,
             require: true
 
 
+        },
+        errors: {
+            type: Object,
+            default: () => ({}),
         }
 
     })
@@ -83,6 +87,11 @@
                         <a href="#" @click.provent="update(Points.id)">Aprovar</a>
 
                     </div>
+
+                    {{ errors.name }}
+                    {{ errors.complement }}
+                    {{ errors.link }}
+
                     <div class="p-6 text-gray-900 dark:text-gray-100">
 
                         <form @submit.prevent="update(Points.id)">
