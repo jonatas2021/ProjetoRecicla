@@ -20,7 +20,9 @@ class CompanyFactory extends Factory
             //
 
             'name' => fake()->name(),
-            'cnpj' => fake()->numberBetween(1000000, 2000000000),
+            'cnpj' => "###############",
+            'phone' => fake()->phoneNumber(), 
+            'dataC' => fake()->date('d_m_y'),
             'user_id' => User::all()->random()->id,
 
         ];

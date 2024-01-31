@@ -53,7 +53,16 @@ class PointController extends Controller
             'complement' => ['required', 'string', 'max:50  ', 'min:10'],
             'link' => ['required', 'active_url']
         ]);
+
+
+        if (!preg_match('/^https:\/\/(www\.)?google\.com\/maps/', $request->link)) {
         
+           return response('URL não é do Google Maps.'); 
+
+        }
+
+
+
         $cord = Str::between($request->link, '@', ',');
         $latitude = Str::beforeLast($cord, ',');
         $longitude = Str::afterLast($cord, ',');
@@ -105,6 +114,16 @@ class PointController extends Controller
     {
         $user = Auth::user();
 
+
+        $validated = $request->validate([
+            'name' => ['required','string','max:100','min:3'],
+            'complement' => ['required', 'string', 'max:50  ', 'min:10'],
+            'link' => ['required', 'active_url']
+        ]);
+
+        $cord = Str::between($request->link, '@', ',');
+        $latitude = Str::beforeLast($cord, ',');
+        $longitude = Str::afterLast($cord, ',');
         if ($request->user()->can('updatePoint',$point)){
             if($request->user()->can('isAdm', $user)){
 
@@ -113,8 +132,8 @@ class PointController extends Controller
 
                     'name' => $request->name,
                     'complement'=> $request->complement,
-                    'longitude'=> $request->longitude,
-                    'latitude'=> $request->latitude,
+                    'longitude'=>$longitude,
+                    'latitude'=> $latitude,
                     'status'=>"1"
 
 

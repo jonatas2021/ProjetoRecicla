@@ -32,7 +32,7 @@
         latitude: dados.Points.latitude,
         longitude: dados.Points.longitude,
         status: dados.Points.status,
-
+        link: ''
     })
 
     const update = (id) => {
@@ -72,11 +72,8 @@
                         Editing:
 
 
-                            {{ Points.id }} <br>
                             {{ Points.name }} <br>
                             {{ Points.complement }} <br>
-                            {{ Points.latitude }} <br>
-                            {{ Points.longitude }} <br>
 
 
                     </div>
@@ -98,8 +95,10 @@
 
                             <input type="text" v-model="createForm.name">
                             <input type="text" v-model="createForm.complement">
-                            <input type="text" v-model="createForm.latitude">
-                            <input type="text" v-model="createForm.longitude">
+                            <input type="text" v-model="createForm.link">
+
+
+
                             <button>salvar</button>
 
                         </form>
