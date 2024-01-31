@@ -17,6 +17,8 @@ class Company extends Model
 
         'name',
         'cnpj',
+        'phone',
+        'dataC',
         'user_id',
 
 

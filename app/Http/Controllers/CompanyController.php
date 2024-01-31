@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Validation\Rule;
 
 
 
@@ -45,6 +46,8 @@ class CompanyController extends Controller
         $validated = $request->validate([
             'name' => ['required','string','max:100','min:3'],
             'cnpj' => ['required', 'cnpj'],
+            'phone' =>['required', 'celular_com_ddd' ],
+            'dataC' => ['required', 'date', 'after_or_equal:today'], 
         ]);
 
     
@@ -56,6 +59,8 @@ class CompanyController extends Controller
 
             'name' => $request -> name,
             'cnpj' => $request -> cnpj,
+            'phone' => $request -> phone,
+            'dataC' => $request -> dataC,
             'user_id' => Auth::user()->id
 
 

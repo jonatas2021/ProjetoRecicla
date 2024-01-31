@@ -26,9 +26,9 @@
     const createForm = useForm({
 
         name: '',
-        cnpj: ''
-
-
+        cnpj: '',
+        phone: '',
+        dataC: ''
 
     })
 
@@ -126,6 +126,8 @@
         <div>
             {{errors.name}}
             {{errors.cnpj}}
+            {{errors.phone}}
+            {{errors.dataC}}
         </div>
 
         <div class="py-12">
@@ -138,6 +140,8 @@
                             <div class="grid grid-cols-2 w-full text-center text-xl">
                                 {{ company.name }}
                                 {{ company.cnpj }}
+                                {{ company.phone }}
+                                {{ company.dataC }}
                             </div>
                             <div :msg="msg"></div>
 
@@ -156,6 +160,9 @@
 
                             <input type="text" v-model="createForm.name">
                             <input type="text" v-model="createForm.cnpj">
+                            <input type="text" v-model="createForm.phone">
+                            <input type="text" v-model="createForm.dataC">
+
                             <button>Cadastrar</button>
 
                         </form>

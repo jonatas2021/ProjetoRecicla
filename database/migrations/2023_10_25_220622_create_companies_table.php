@@ -16,6 +16,8 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('cnpj');
+            $table->string('phone');
+            $table->string('dataC'); //data de criacao da empresa.
             $table->foreignId('user_id');
         });
     }
