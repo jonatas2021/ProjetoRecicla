@@ -54,15 +54,16 @@ class PointController extends Controller
             'link' => ['required', 'active_url']
         ]);
 
-
-        if (!preg_match('/^https:\/\/(www\.)?google\.com\/maps/', $request->link)) {
+    
+    
+        $pattern = '/^https:\/\/(www\.)?google\.com\/maps/';
+       
+        if (!preg_match($pattern,$request->link) ) {
         
-           return response('URL não é do Google Maps.'); 
+            return response ('URL invalida');
 
         }
-
-
-
+        
         $cord = Str::between($request->link, '@', ',');
         $latitude = Str::beforeLast($cord, ',');
         $longitude = Str::afterLast($cord, ',');
