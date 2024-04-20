@@ -44,13 +44,13 @@
     height: 100vh;
 } */
 .footer{
-    /* width: 100vw; */
+    width: 100vw;
     height: 110vh;
     position: relative;
     margin-bottom: 0;
     top: -100px;
     background-image: url('../pictures/Rectangle.svg');
-    background-position-x: -340px;
+    background-position-x: -200px;
     background-size: cover;
     background-repeat: no-repeat;
 }
