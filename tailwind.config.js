@@ -15,9 +15,12 @@ export default {
             backgroundColor: {
                 'amber':'#ffc727',
                 'newBlue':'#111B47',
+                'newGreen':'#458046',
+                'whiteBlue':'#E7ECFF',
             },
             textColor: {
                 'amber':'#ffc727',
+                'textNewBlue':'#091133',
             },
             
             fontFamily: {
