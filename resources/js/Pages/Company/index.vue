@@ -93,9 +93,9 @@
 
     <Head title="Empresa" />
 
-    <div v-if="modal" @click="modalOpen" class="absolute duration-1000 w-screen h-screen flex justify-center items-center bg-gray-700 bg-opacity-70">
+    <div v-if="modal" @click="modalOpen" class="absolute duration-1000 w-screen h-screen flex justify-center items-center bg-gray-700 bg-opacity-70 z-20">
         <div @click.stop class="w-2/5 h-3/5 bg-white rounded-xl z-10 relative flex justify-center items-center break-words">
-            <div class="w-full h-full flex justify-center items-center flex-col break-words bg-gray-500 bg-opacity-30 rounded-lg">
+            <div class="w-full h-full flex justify-center items-center flex-col break-words bg-gray-500 bg-opacity-30 rounded-lg z-10">
                 <div v-if="!validation" class="atencion h-2/4 w-2/4 mt-10 mb-10"></div>
                 <div v-else class="checked h-2/4 w-2/4 mt-10 mb-10"></div>
                 <h2 class="text-6xl font-bold">Tem certeza?</h2>
@@ -114,72 +114,90 @@
             </div>
         </div>
     </div>
+    <div>
+        <div class="w-screen h-screen absolute backCompany"><div>
+        <div class="w-screen h-screen absolute backCompany2"></div>
 
-    <AuthenticatedLayout>
-        <template #header>
-
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                Empresa
-            </h2>
-        </template>
-
-        <div>
-            {{errors.name}}
-            {{errors.cnpj}}
-            {{errors.phone}}
-            {{errors.dataC}}
-        </div>
-
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-amber dark:bg-amber overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-black dark:text-black flex">
-                        <!-- Minha Empresa -->
-                        <div v-if="company != null" class="grid grid-cols-3 ">
-
-                            <div class="grid grid-cols-2 w-full text-center text-xl">
-                                {{ company.name }}
-                                {{ company.cnpj }}
-                                {{ company.phone }}
-                                {{ company.dataC }}
-                            </div>
-                            <div :msg="msg"></div>
-
-                            <div class="grid grid-cols-2 gap-4 items-center">
-                                <!-- testes -->
-                                <!-- <a href="#" @click.provent="remove(company)" style="border: 1px solid white;" class="bg-white p-3 rounded-lg text-center duration-1000 hover:bg-gray-200">test</a> -->
-                                <a href="#" @click.provent="modalOpen" style="border: 1px solid white;" class="bg-white p-3 rounded-lg text-center duration-1000 hover:bg-gray-200">Apagar</a>
-                                <a href="#" @click.provent="edit(company)" style="border: 1px solid white;" class="bg-white p-3 rounded-lg text-center duration-1000 hover:bg-gray-200 hover:border-gray-200">Editar</a>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div v-if="company == null">
-                        <form @submit.prevent="add">
-
-                            <input type="text" v-model="createForm.name">
-                            <input type="text" v-model="createForm.cnpj">
-                            <input type="text" v-model="createForm.phone">
-                            <input type="text" v-model="createForm.dataC">
-
-                            <button>Cadastrar</button>
-
-                        </form>
-                    </div>
-                </div>
+        
 
             </div>
+            <AuthenticatedLayout class="relative z-10">
+                <template #header>
+        
+                    <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-800 leading-tight pt-8">
+                        Empresa
+                    </h2>
+                    <hr class="mt-8 border-none bg-black h-px">
+                    <div class="grid grid-cols-4 w-3/4">
+                        <h2>nome</h2>
+                        <h2>cnpj</h2>
+                        <h2>telefone</h2>
+                        <h2>data</h2>
+                    </div>
+                </template>
+        
+                <div>
+                    {{errors.name}}
+                    {{errors.cnpj}}
+                    {{errors.phone}}
+                    {{errors.dataC}}
+                </div>
+        
+                <div class="py-12 relative z-10">
+                    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                            <div class="text-black dark:text-black flex">
+                                <!-- Minha Empresa -->
+                                <div v-if="company != null" class="grid grid-cols-3 h-36 items-center">
+        
+                                    <div class="grid grid-cols-4 gap-6 col-span-2 w-full text-center text-xl items-end mt-8">
+                                        <h2>{{ company.name }}</h2>
+                                        <h2>{{ company.cnpj }}</h2>
+                                        <h2>{{ company.phone }}</h2>
+                                        <h2>{{ company.dataC }}</h2>
+                                    </div>
+                                    <div class="flex justify-end">
+                                        <div class="grid grid-cols-2 gap-4 items-end mt-8 ml-26">
+                                            <!-- testes -->
+                                            <!-- <a href="#" @click.provent="remove(company)" style="border: 1px solid white;" class="bg-white p-3 rounded-lg text-center duration-1000 hover:bg-gray-200">test</a> -->
+                                            <a href="#" @click.provent="modalOpen" style="border: 1px solid white;" class="p-3 rounded-lg text-center duration-1000 hover:bg-gray-200 delete-1 mr-8"></a>
+                                            <a href="#" @click.provent="edit(company)" style="border: 1px solid white;" class="p-3 rounded-lg text-center duration-1000 hover:bg-gray-200 hover:border-gray-200 edit-1 mr-8"></a>
+                                        </div>
+                                    </div>
 
-
-
+                                    <div :msg="msg"></div>
+        
+        
+                                </div>
+                            </div>
+        
+                            <div v-if="company == null">
+                                <form @submit.prevent="add">
+        
+                                    <input type="text" v-model="createForm.name">
+                                    <input type="text" v-model="createForm.cnpj">
+                                    <input type="text" v-model="createForm.phone">
+                                    <input type="text" v-model="createForm.dataC">
+        
+                                    <button>Cadastrar</button>
+        
+                                </form>
+                            </div>
+                        </div>
+        
+                    </div>
+        
+        
+        
+                </div>
+        
+        
+        
+        
+        
+            </AuthenticatedLayout>
         </div>
-
-
-
-
-
-    </AuthenticatedLayout>
+    </div>
 
 
 </template>
@@ -193,5 +211,29 @@
     background-image: url('../../pictures/checked.svg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
+}
+.backCompany{
+    background-image: url('../../pictures/curved-svg.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: -300px;
+    background-position-y: 80px;
+}
+.backCompany2{
+    background-image: url('../../pictures/svg-1.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position-x: 470px;
+    background-position-y: -60px;
+}
+.delete-1{
+    background-image: url('../../pictures/delete.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.edit-1{
+    background-image: url('../../pictures/edit.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 </style>
