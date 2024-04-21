@@ -19,20 +19,11 @@ import { Head } from '@inertiajs/vue3';
     <AuthenticatedLayout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>
+            <div v-if="can.isAdm" >
+               <a :href="route('adm.index')">Adm</a>
+               
+           </div>
         </template>
-
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-gray-900">You're logged in!</div>
-   
-
-                    <div v-if="can.isAdm" >
-                        <a :href="route('adm.index')">Adm</a>
-    
-                    </div>
-                </div>
-            </div>
-        </div>
+        <iframe src="http://127.0.0.1:8000/map" height="80%" width="100%" frameborder="0" class="absolute"></iframe>
     </AuthenticatedLayout>
 </template>
