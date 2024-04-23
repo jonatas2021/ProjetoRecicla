@@ -68,37 +68,52 @@
 
     <Head title="Empresa" />
 
-    <AuthenticatedLayout>
+    <div class="w-screen absolute backCompany3"></div>
+    <div class="w-screen absolute backCompany4"></div>
 
+
+    <AuthenticatedLayout>
 
         <template #header>
 
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Point
             </h2>
+            <hr class="mt-8 border-none bg-black h-px">
+            <div class="grid grid-cols-6 w-7/12 pl-4">
+                <h2>ID</h2>
+                <h2>Nome</h2>
+                <h2>Complemento</h2>
+                <h2>Latitude</h2>
+                <h2>Longetude</h2>
+                <h2>Status</h2>
+            </div>
 
         </template>
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-black">
                         My Point
                     </div>
 
                     <hr>
 
-                    <div class="p-6 text-gray-900 dark:text-gray-100" v-for="Point in Points">
+                    <div class="p-6 text-black" v-for="Point in Points">
 
-                        {{ Point.id }} <br>
-                        {{ Point.name }} <br>
-                        {{ Point.complement }} <br>
-                        {{ Point.latitude }} <br>
-                        {{ Point.longitude }} <br>
-                        {{ Point.status }} <br>
-
-                        <a href="#" @click.provent="remove(Point.id)" style="margin: 5px;border: 1px solid black;">DEL</a>
-                        <a href="#" @click.provent="edit(Point.id)" style="margin: 5px;border: 1px solid black;">EDIT</a>
+                        <div class="flex gap-14">
+                            <h2>{{ Point.id }}</h2>
+                            <h2>{{ Point.name }}</h2>
+                            <h2>{{ Point.complement }}</h2>
+                            <h2>{{ Point.latitude }}</h2>
+                            <h2>{{ Point.longitude }}</h2>
+                            <h2>{{ Point.status }}</h2>
+                            <div class="flex justify-end w-full">
+                                <a href="#" @click.provent="remove(Point.id)" style="margin: 5px;" class="delete-2 w-6 h-6"></a>
+                                <a href="#" @click.provent="edit(Point.id)" style="margin: 5px;" class="edit-2 w-6 h-6"></a>
+                            </div>
+                        </div>
 
                     </div>
 
@@ -109,21 +124,21 @@
                         {{ errors.link }}
                     </div>
 
-                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <div class="p-6 text-black">
 
-                        <form @submit.prevent="add">
+                        <form @submit.prevent="add" class="grid grid-cols-3 grid-rows-3">
 
                             <label>Name</label>
-                            <input type="text" v-model="createForm.name">
                             <label>complement</label>
-                            <input type="text" v-model="createForm.complement">
                             <label>link</label>
+                            <input type="text" v-model="createForm.name">
+                            <input type="text" v-model="createForm.complement">
                             <input type="text" v-model="createForm.link">
 
                             <!-- <label>status</label>
                             <input type="text" v-model="createForm.status"> -->
 
-                            <button>Salvar</button>
+                            <button class="col-span-3 mt-8">Salvar</button>
 
                         </form>
                     </div>
@@ -135,3 +150,33 @@
     </AuthenticatedLayout>
 
 </template>
+<style>
+.backCompany3{
+    background-image: url('../../pictures/curved-svg.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: -800px;
+    background-position-y: 80px;
+    height: 100vw;
+    z-index: -1;
+}
+.backCompany4{
+    background-image: url('../../pictures/svg-1.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position-x: 600px;
+    background-position-y: -200px;
+    height: 100vw;
+    z-index: -1;
+}
+.delete-2{
+    background-image: url('../../pictures/delete.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.edit-2{
+    background-image: url('../../pictures/edit.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+</style>

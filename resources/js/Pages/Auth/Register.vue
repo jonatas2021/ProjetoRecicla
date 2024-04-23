@@ -108,7 +108,7 @@ const submit = () => {
                 </div>
                 <div class="card-image relative">
                     <div class="card-image-text">
-                        <h1 class="text-7xl font-extrabold text-amber mb-3 indent-32">Reciclaí</h1>
+                        <h1 class="text-7xl font-extrabold text-amber mb-3 indent-32">Pilhados na Reversa</h1>
                         <p class="text-amber indent-32">Login to access your account</p>
                     </div>
                     <div class="waste-management absolute bottom-0 right-0">

@@ -70,7 +70,9 @@ Route::middleware('auth')->group(function () {
     
 
 
-
+    Route::get('/sustainability', function (){
+        return Inertia::render('sustainability/Sustainability');
+    });
 
 
 
