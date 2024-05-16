@@ -48,7 +48,7 @@
         createForm.put(
 
 
-            route('point.aprovar', id)
+            route('point.update', id)
         )
 
     }
@@ -74,6 +74,8 @@
 
                             {{ Points.name }} <br>
                             {{ Points.complement }} <br>
+                            {{ Points.latitude }} <br>
+                            {{ Points.longitude }} <br>
 
 
                     </div>
@@ -81,30 +83,30 @@
                     <hr>
                     <div v-if="Adm != null">
 
-                        <a href="#" @click.provent="update(Points.id)">Aprovar</a>
+                        <a href="#" @click.provent="aprovar(Points.id, v=1)">Aprovar</a>
 
                     </div>
 
                     {{ errors.name }}
                     {{ errors.complement }}
                     {{ errors.link }}
+                    <div v-if="Adm == null">
+                        <div class="p-6 text-black">
 
-                    <div class="p-6 text-black">
+                            <form @submit.prevent="update(Points.id)">
 
-                        <form @submit.prevent="update(Points.id)">
-
-                            <input type="text" v-model="createForm.name">
-                            <input type="text" v-model="createForm.complement">
-                            <input type="text" v-model="createForm.link">
+                                <input type="text" v-model="createForm.name">
+                                <input type="text" v-model="createForm.complement">
+                                <input type="text" v-model="createForm.link">
 
 
 
-                            <button>salvar</button>
+                                <button>salvar</button>
 
-                        </form>
+                            </form>
 
+                        </div>
                     </div>
-
                 </div>
             </div>
         </div>

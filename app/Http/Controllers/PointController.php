@@ -65,8 +65,9 @@ class PointController extends Controller
         }
         
         $cord = Str::between($request->link, '@', ',');
-        $latitude = Str::beforeLast($cord, ',');
-        $longitude = Str::afterLast($cord, ',');
+        
+        $latitude = Str::before($cord, ',');
+        $longitude = Str::after($cord, ',');
         Point::create([
 
             
@@ -115,16 +116,27 @@ class PointController extends Controller
     {
         $user = Auth::user();
 
+        
+        if ($request->latitude && $request->longitude) {
+            
+            $validated = $request->validate([
+                'name' => ['required','string','max:100','min:3'],
+                'complement' => ['required', 'string', 'max:50  ', 'min:10'],
+            ]);
 
-        $validated = $request->validate([
-            'name' => ['required','string','max:100','min:3'],
-            'complement' => ['required', 'string', 'max:50  ', 'min:10'],
-            'link' => ['required', 'active_url']
-        ]);
+        }else {
+            
+            $validated = $request->validate([
+                'name' => ['required','string','max:100','min:3'],
+                'complement' => ['required', 'string', 'max:50  ', 'min:10'],
+                'link' => ['required', 'active_url']
+            ]);
+        }
+ 
 
         $cord = Str::between($request->link, '@', ',');
-        $latitude = Str::beforeLast($cord, ',');
-        $longitude = Str::afterLast($cord, ',');
+        $latitude = Str::before($cord, ',');
+        $longitude = Str::after($cord, ',');
         if ($request->user()->can('updatePoint',$point)){
             if($request->user()->can('isAdm', $user)){
 
